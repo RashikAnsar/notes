@@ -1,103 +1,137 @@
+const math = require("remark-math");
+const katex = require("rehype-katex");
+
 module.exports = {
-  title: 'My Site',
-  tagline: 'The tagline of my site',
-  url: 'https://your-docusaurus-test-site.com',
-  baseUrl: '/',
-  onBrokenLinks: 'throw',
-  onBrokenMarkdownLinks: 'warn',
-  favicon: 'img/favicon.ico',
-  organizationName: 'facebook', // Usually your GitHub org/user name.
-  projectName: 'docusaurus', // Usually your repo name.
+  title: "Rashik Notes",
+  tagline:
+    "My Notes on various topics (C++, Python, Data structures, Algorithms, Aptitude, AI/ML).",
+  url: "https://rashikansar.github.io",
+  baseUrl: "/",
+  onBrokenLinks: "throw",
+  onBrokenMarkdownLinks: "warn",
+  favicon: "img/favicon.ico",
+  organizationName: "facebook", // Usually your GitHub org/user name.
+  projectName: "docusaurus", // Usually your repo name.
   themeConfig: {
+    sidebarCollapsible: true,
+    hideableSidebar: true,
     navbar: {
-      title: 'My Site',
+      title: "Rashik",
       logo: {
-        alt: 'My Site Logo',
-        src: 'img/logo.svg',
+        alt: "My Site Logo",
+        src: "img/logo.svg",
       },
       items: [
         {
-          to: 'docs/',
-          activeBasePath: 'docs',
-          label: 'Docs',
-          position: 'left',
+          label: "Coding",
+          position: "left",
+          items: [
+            { to: "/lang/intro", label: "Programmig Language" },
+            { to: "/ds/intro", label: "Data Structures" },
+            { to: "/algo/intro", label: "Algorithms" },
+          ],
         },
-        {to: 'blog', label: 'Blog', position: 'left'},
         {
-          href: 'https://github.com/facebook/docusaurus',
-          label: 'GitHub',
-          position: 'right',
+          label: "AI/ML",
+          position: "left",
+          items: [
+            { to: "/math/intro", label: "Math" },
+            { to: "/statistics/intro", label: "Statistics" },
+            { to: "/ml/intro", label: "Machine Learning" },
+          ],
+        },
+        { to: "blog", label: "Blog", position: "right" },
+        {
+          href: "https://github.com/rashikansar/notes",
+          // label: "GitHub",
+          // // replace the label with icon
+          className: "header-github-link",
+          "aria-label": "GitHub repository",
+          title: "GitHub repository",
+          position: "right",
         },
       ],
     },
     footer: {
-      style: 'dark',
+      style: "dark",
       links: [
         {
-          title: 'Docs',
+          title: "Quick Links",
           items: [
             {
-              label: 'Style Guide',
-              to: 'docs/',
+              label: "C++",
+              to: "/lang/cpp",
             },
             {
-              label: 'Second Doc',
-              to: 'docs/doc2/',
+              label: "Data Structures",
+              to: "/ds/intro",
+            },
+            {
+              label: "Algorithms",
+              to: "/algo/intro",
             },
           ],
         },
         {
-          title: 'Community',
+          title: "Community",
           items: [
             {
-              label: 'Stack Overflow',
-              href: 'https://stackoverflow.com/questions/tagged/docusaurus',
+              label: "GitHub",
+              href: "https://github.com/RashikAnsar",
             },
             {
-              label: 'Discord',
-              href: 'https://discordapp.com/invite/docusaurus',
-            },
-            {
-              label: 'Twitter',
-              href: 'https://twitter.com/docusaurus',
+              label: "Twitter",
+              href: "https://twitter.com/rashik_ansar",
             },
           ],
         },
         {
-          title: 'More',
+          title: "More",
           items: [
             {
-              label: 'Blog',
-              to: 'blog',
+              label: "Blog",
+              to: "blog",
             },
             {
-              label: 'GitHub',
-              href: 'https://github.com/facebook/docusaurus',
+              label: "My Python Notes",
+              to: "https://ra-py-notes.web.app/",
             },
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+      copyright: `Copyright © ${new Date().getFullYear()} Rashik, Built with Docusaurus.`,
     },
   },
+  stylesheets: [
+    {
+      href: "https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css",
+      type: "text/css",
+      integrity:
+        "sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X",
+      crossorigin: "anonymous",
+    },
+  ],
   presets: [
     [
-      '@docusaurus/preset-classic',
+      "@docusaurus/preset-classic",
       {
         docs: {
-          sidebarPath: require.resolve('./sidebars.js'),
-          // Please change this to your repo.
-          editUrl:
-            'https://github.com/facebook/docusaurus/edit/master/website/',
+          path: "notes",
+          routeBasePath: "/",
+          sidebarPath: require.resolve("./sidebars.js"),
+          showLastUpdateAuthor: true,
+          showLastUpdateTime: true,
+          remarkPlugins: [math],
+          rehypePlugins: [katex],
+          editUrl: "https://github.com/rashikansar/notes/edit/master/",
         },
         blog: {
           showReadingTime: true,
           // Please change this to your repo.
-          editUrl:
-            'https://github.com/facebook/docusaurus/edit/master/website/blog/',
+          editUrl: "https://github.com/rashikansar/notes/edit/master/blog/",
         },
         theme: {
-          customCss: require.resolve('./src/css/custom.css'),
+          customCss: require.resolve("./src/css/custom.css"),
         },
       },
     ],
