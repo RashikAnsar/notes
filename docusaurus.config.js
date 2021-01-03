@@ -10,8 +10,8 @@ module.exports = {
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
   favicon: "img/favicon.ico",
-  organizationName: "facebook", // Usually your GitHub org/user name.
-  projectName: "docusaurus", // Usually your repo name.
+  organizationName: "RashikAnsar", // Usually your GitHub org/user name.
+  projectName: "notes", // Usually your repo name.
   themeConfig: {
     sidebarCollapsible: true,
     hideableSidebar: true,
@@ -31,15 +31,16 @@ module.exports = {
             { to: "/algo/intro", label: "Algorithms" },
           ],
         },
-        {
-          label: "AI/ML",
-          position: "left",
-          items: [
-            { to: "/math/intro", label: "Math" },
-            { to: "/statistics/intro", label: "Statistics" },
-            { to: "/ml/intro", label: "Machine Learning" },
-          ],
-        },
+        // TODO:
+        // {
+        //   label: "AI/ML",
+        //   position: "left",
+        //   items: [
+        //     { to: "/math/intro", label: "Math" },
+        //     { to: "/statistics/intro", label: "Statistics" },
+        //     { to: "/ml/intro", label: "Machine Learning" },
+        //   ],
+        // },
         { to: "blog", label: "Blog", position: "right" },
         {
           href: "https://github.com/rashikansar/notes",
@@ -127,7 +128,6 @@ module.exports = {
         },
         blog: {
           showReadingTime: true,
-          // Please change this to your repo.
           editUrl: "https://github.com/rashikansar/notes/edit/master/blog/",
         },
         theme: {
