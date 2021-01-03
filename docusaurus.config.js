@@ -6,7 +6,7 @@ module.exports = {
   tagline:
     "My Notes on various topics (C++, Python, Data structures, Algorithms, Aptitude, AI/ML).",
   url: "https://rashikansar.github.io",
-  baseUrl: "/notes",
+  baseUrl: "/notes/",
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
   favicon: "img/favicon.ico",
