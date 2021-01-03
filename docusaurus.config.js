@@ -124,11 +124,11 @@ module.exports = {
           showLastUpdateTime: true,
           remarkPlugins: [math],
           rehypePlugins: [katex],
-          editUrl: "https://github.com/rashikansar/notes/edit/master/",
+          editUrl: "https://github.com/rashikansar/notes/edit/main/",
         },
         blog: {
           showReadingTime: true,
-          editUrl: "https://github.com/rashikansar/notes/edit/master/blog/",
+          editUrl: "https://github.com/rashikansar/notes/edit/main/",
         },
         theme: {
           customCss: require.resolve("./src/css/custom.css"),
