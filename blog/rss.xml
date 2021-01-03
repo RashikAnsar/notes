@@ -9,7 +9,7 @@
         <generator>https://github.com/jpmonette/feed</generator>
         <item>
             <title><![CDATA[Hello]]></title>
-            <link>https://rashikansar.github.io/blog/hello-world</link>
+            <link>https://rashikansar.github.io/notes/blog/hello-world</link>
             <guid>hello-world</guid>
             <pubDate>Fri, 01 Jan 2021 00:00:00 GMT</pubDate>
             <description><![CDATA[Welcome to this blog. This is a test blog]]></description>
