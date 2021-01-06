@@ -382,3 +382,25 @@ Lets assume A = 0100 (4), B = 0101 (5)
 :::tip
 If shift operators applied on N then `N<<a` will give a result $$N*2^a$$ and `N>>a` will give a result $N/2^a$
 :::
+
+### Assignment operators
+
+| Operator | Operation                                                                              | Example                      |
+| :------: | -------------------------------------------------------------------------------------- | ---------------------------- |
+|    =     | Assigns value of right operand to left operand                                         | A=B will put value of B in A |
+|    +=    | Adds right operand to the left operand and assigns the result to left operand.         | A+=B $\equiv$ A = A+B        |
+|    -=    | Subtracts right operand from the left operand and assigns the result to left operand.  | A-=B $\equiv$ A=A-B          |
+|   \*=    | Multiplies right operand with the left operand and assigns the result to left operand. | A*=B $\equiv$ A=A*B          |
+|    /=    | Divides left operand with the right operand and assigns the result to left operand.    | A/=B $\equiv$ A=A/B          |
+
+### Miscellaneous Operators
+
+|     Operator      | Description                                                                                   | Example                                  |
+| :---------------: | --------------------------------------------------------------------------------------------- | ---------------------------------------- |
+|    `sizeof()`     | Returns the size of a variable                                                                | `sizeof(x)` will return 4 since x is int |
+| condition ? x : y | Conditional operator. If condition is true, then returns value of `x` or else value of `y`    | `2==3? 5 : 8`                            |
+|        `,`        | Comma Operator causes a sequence of operations to be performed                                |                                          |
+|       Cast        | Cast Operator converts one data type to another                                               | `(int)3.14` would return `3`             |
+|         &         | returns the address of a variable.                                                            |                                          |
+|        \*         | pointer to a variable.                                                                        | \*x will pointer to variable x           |
+|   `->` and `.`    | Member operators are used to reference individual members of classes, structures, and unions. |                                          |
