@@ -226,3 +226,65 @@ Enter a number: 5
 Enter another number: 8
 Sum of given numbers 5 and 8 is 13
 ```
+
+## Operators
+
+Operators are nothing but symbols that tell the compiler to perform some specific operations on the given operands.
+
+### Arithmetic Operators
+
+Arithmetic operators perform some arithmetic operation on one or two operands.
+
+**Unary Operators** are the operators that operate only on the one operand. `++` and `--` unary operators.
+
+**Binary Operators** operate onn two operands. `+`, `-`, `*`, `/`, `%` are binary operators.
+
+Lets assume `x = 7`, `y = 10`
+
+| Operator | Operation                              | Example     |
+| :------: | -------------------------------------- | ----------- |
+|    +     | Addition of two operands               | x + y = 17  |
+|    -     | Subtract second operand from first     | y - x = 3   |
+|    \*    | Multiplies two operands                | x \* y = 70 |
+|    /     | Divides first operand by second        | y / x = 1   |
+|    %     | Gives remainder after integer division | y % x = 3   |
+|    ++    | Increments value by one                | x++ = 8     |
+|    --    | Decrements value by one                | x-- = 6     |
+
+:::danger
+**Pre** Increment/decrement (`++x`) changes the values instantly where as **Post** Increment/decrement (`x++`) changes the value only after completing the execution of current statement and before execution of next statement.
+:::
+
+Simple example on arithmetic operators
+
+```cpp title="arithmetic_example.cpp"
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+  int x = 10, y = 7;
+
+  cout << "Addition of " << x << " and " << y << " is " << x + y << endl;
+  cout << "Subtraction of " << x << " and " << y << " is " << x - y << endl;
+  cout << "Multiplication of " << x << " and " << y << " is " << x * y << endl;
+  cout << "Division of " << x << " and " << y << " is " << x / y << endl;
+  cout << "Remainder of " << x << " and " << y << " is " << x % y << endl;
+
+  // Observe these two lines
+  cout << "Pre-Increment of " << x << " is " << ++x << endl;
+  cout << "Post-Increment of " << y << " is " << y++ << endl;
+}
+```
+
+```bash title="output"
+$ ./arithmetic_example
+Addition of 10 and 7 is 17
+Subtraction of 10 and 7 is 3
+Multiplication of 10 and 7 is 70
+Division of 10 and 7 is 1
+Remainder of 10 and 7 is 3
+Pre-Increment of 10 is 11
+Post-Increment of 7 is 7
+```
