@@ -347,8 +347,8 @@ Lets assume x = 0, y = 1
 
 using namespace std;
 
-int main()
-{ bool rainy = false;
+int main() {
+  bool rainy = false;
 
   if(!rainy) {
     cout << "No need of umbrella" << endl;
@@ -363,3 +363,22 @@ int main()
 $ ./logical_example
 No need of umbrella
 ```
+
+### Bitwise operators
+
+Bitwise operators perform bit by bit operations.
+
+Lets assume A = 0100 (4), B = 0101 (5)
+
+| Operator | Operation                                                                                                       | Example       |
+| :------: | --------------------------------------------------------------------------------------------------------------- | ------------- |
+| & (AND)  | The result will contain 1 only if two bits are 1                                                                | A&B = 0100    |
+| \| (OR)  | The result will contain 1 if 1 exist in atleast one of the opearnds                                             | A \| B = 0101 |
+| ^ (XOR)  | The result will contain one the two bits are different                                                          | A^B = 0001    |
+|    ~     | Binary ones complement. Flips the bits                                                                          | ~A = 1011     |
+|    <<    | Left shift operator. Left operand bits are moved left by the number of places specified by the right operand.   | A<< 1 = 1000  |
+|    >>    | Right shift operator. Left operand bits are moved right by the number of places specified by the right operand. | A>> 1 = 0010  |
+
+:::tip
+If shift operators applied on N then `N<<a` will give a result $$N*2^a$$ and `N>>a` will give a result $N/2^a$
+:::
