@@ -329,3 +329,37 @@ int main() {
 $ ./relational_example
 Sorry, You're too young to vote
 ```
+
+### Logical Operators
+
+Logical operators are used to combine multiple expressions/conditions together or to negate the logical value.
+
+Lets assume x = 0, y = 1
+
+| Operator | Operation                                      | Example        |
+| :------: | ---------------------------------------------- | -------------- |
+|    &&    | Return true if both operands are non-zeros     | x && y = false |
+|   \|\|   | Return true if any of the operands is non-zero | x && y = false |
+|    !     | Negate the logical value of the operand        | !x = true      |
+
+```cpp title="logical_example.cpp"
+#include <iostream>
+
+using namespace std;
+
+int main()
+{ bool rainy = false;
+
+  if(!rainy) {
+    cout << "No need of umbrella" << endl;
+  } else {
+    cout << "Take an umbrella with you" << endl;
+  }
+  return 0;
+}
+```
+
+```bash title="output"
+$ ./logical_example
+No need of umbrella
+```
