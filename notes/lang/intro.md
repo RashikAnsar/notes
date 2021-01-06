@@ -18,8 +18,44 @@ Once a program is compiled then it will generate the object file. Linker will li
 
 AST (Abstract Syntax Tree) is a graph/tree representation of source code primarily used by compilers to read code and generate the target binaries.
 
+### Types of Programming languages
+
+- **Low Level Language**: It is the only language which can be understood by the computer. ex: Binary Language
+- **Middle-level language**: It is a computer language in which the instructions are created using symbols such as letters, digits and special characters. ex: Assembly Language
+  :::info
+  Assemblers are used to convert the middle-level language to low-level language
+  :::
+- **High-level language**: It is a computer language which can be understood by the users. The high-level language is very similar to human languages and has a set of grammar rules that are used to make instructions more easily. ex: C, C++, Python, Java etc.
+  :::info
+  Compilers or Interpreters are used to convert High-level Languages.
+  :::
+
+## Number system
+
+The technique to represent and work with numbers is called number system
+
+| Decimal | Binary | Octal | HexaDecimal |
+| :-----: | :----: | :---: | :---------: |
+|    0    |  0000  |   0   |      0      |
+|    1    |  0001  |   1   |      1      |
+|    2    |  0010  |   2   |      2      |
+|    3    |  0011  |   3   |      3      |
+|    4    |  0100  |   4   |      4      |
+|    5    |  0101  |   5   |      5      |
+|    6    |  0110  |   6   |      6      |
+|    7    |  0111  |   7   |      7      |
+|    8    |  1000  |  10   |      8      |
+|    9    |  1001  |  11   |      9      |
+|   10    |  1010  |  12   |      A      |
+|   11    |  1011  |  13   |      B      |
+|   12    |  1100  |  14   |      C      |
+|   13    |  1101  |  15   |      D      |
+|   14    |  1110  |  16   |      E      |
+|   15    |  1111  |  17   |      F      |
+
 ## Further reading
 
 - [Programming Language](https://en.wikipedia.org/wiki/Programming_language)
 - [Compilers/Assemblers/Interpreters](https://www.microcontrollertips.com/compilers-translators-interpreters-assemblers-faq/)
 - [Abstract Syntax Tree (AST)](https://en.wikipedia.org/wiki/Abstract_syntax_tree)
+- [Computer Languages](https://www.cs.mtsu.edu/~xyang/2170/computerLanguages.html)
