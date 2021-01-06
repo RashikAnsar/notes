@@ -288,3 +288,44 @@ Remainder of 10 and 7 is 3
 Pre-Increment of 10 is 11
 Post-Increment of 7 is 7
 ```
+
+### Relational Operators
+
+Relational operators defines relation(comparision) between two operands and it returns boolean value.
+
+Lets assume `x = 7`, `y = 10`
+
+| Operator | Operation                                                                      | Example       |
+| :------: | ------------------------------------------------------------------------------ | ------------- |
+|    ==    | returns true if two operands are equal                                         | x==y is false |
+|    !=    | returns true if two operands are not equal                                     | x!=y is true  |
+|    >     | returns true if left operand operand is greater than right operand             | x==y is false |
+|    <     | returns true if left operand operand is less than right operand                | x==y is false |
+|    >=    | returns true if left operand operand is greater than or equal to right operand | x==y is false |
+|    <=    | returns true if left operand operand is less than or equal to right operand    | x==y is false |
+
+Example on Relational Operators
+
+```cpp title="relational_example.cpp
+#include <iostream>
+
+using namespace std;
+
+int main() {
+  int age = 15;
+
+  if (age >= 18) {
+    cout << "You can vote" << endl;
+  } else {
+    cout << "Sorry, You're too young to vote" << endl;
+  }
+
+  return 0;
+}
+
+```
+
+```bash title="output"
+$ ./relational_example
+Sorry, You're too young to vote
+```
