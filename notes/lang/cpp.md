@@ -6,11 +6,11 @@ sidebar_label: C++
 
 ## Overview
 
+<div className="text--center">
+
 ![CPP](./images/cpp.svg)
 
-<!-- <div className="text--center">
-  <img src="./images/cpp.svg" />
-</div> -->
+</div>
 
 `C++` is a general-purpose programming language created by Bjarne Stroustrup as an extension of the C programming language, or "C with Classes".
 
