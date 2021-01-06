@@ -24,6 +24,21 @@ int main() {
 }
 ```
 
+In the above code
+
+- `#include` is a preprocessor directive used to include the header files.
+- `iostream` is a header file for taking input or printing output.
+- `int` is type of data returned by function.
+- `main` is the function where execution of code begins in any c++ program.
+- `cout` is used for displaying output in quotation marks.
+- `;` marks the end of the statement.
+- `return 0` Exit status of the function.
+- `{}` define the start and end of the code block (main function here).
+
+:::info
+In `C++` execution of code begins from `main` function.
+:::
+
 ## Comments
 
 - Comments are lines that exist in computer programs that are ignored by compilers and interpreters.
@@ -147,7 +162,6 @@ Size of long int: 8
 Size of float: 4
 Size of double: 8
 Size of long double: 16
-$
 ```
 
 ### Derived Data types
@@ -157,3 +171,57 @@ These are derived from Primitive(built-in) data types. Like `Array`, `Function`,
 ### User-Defined Data types
 
 These are defined by users. Like, defining a class in C++ or a structure. `Class`, `Structure`, `Union`, `Enum`
+
+## Basic Input Output
+
+`iostream` header file is used for taking input and printing output.
+
+`cout` is used to display on screen.
+`<<` is an insertion operator used along with `cout`.
+`cin` is used to take input from the user.
+`>>` is an extraction operator used along with `cin`.
+
+```cpp title="basic_io.cpp"
+#include <iostream>
+
+using namespace std;
+
+int main() {
+  cout << "Hello World\n";
+  return 0;
+}
+```
+
+```bash title="output"
+$ ./basic_io
+Hello World
+```
+
+```cpp title="input_sum.cpp"
+// Take two numbers from user and print sum of the given numbers
+#include <iostream>
+
+using namespace std;
+
+int main() {
+  int a;
+  cout << "Enter a number: ";
+  cin >> a;
+
+  int b;
+  cout << "Enter another number: ";
+  cin >> b;
+
+  int total = a + b;
+  cout << "Sum of given numbers " << a << " and " << b << " is " << total << endl;
+
+  return 0;
+}
+```
+
+```bash title="output"
+$ ./input_sum
+Enter a number: 5
+Enter another number: 8
+Sum of given numbers 5 and 8 is 13
+```
