@@ -83,3 +83,52 @@ int main() {
 ```
 
 </details>
+
+## Input/Output
+
+<details>
+<summary>Take input of favourite number and print it on screen</summary>
+
+```cpp title="numInput.cpp"
+#include <iostream>
+
+using namespace std;
+
+int main() {
+  int favNum;
+  cout << "Enter yout fav.number: ";
+  cin >> favNum;
+  cout << favNum << endl;
+  return 0;
+}
+```
+
+</details>
+
+<details>
+<summary>Take full name of user and age of user as inputs and print them </summary>
+
+```cpp title="stringInput.cpp"
+#include <iostream>
+
+using namespace std;
+
+int main() {
+  string name;
+  cout << "Enter your name : ";
+  // using getline since cin considers space as termination of input
+  getline(cin, name);
+
+  int age;
+  cout << "Enter your age: ";
+  cin >> age;
+
+  cout << "Name: " << name << endl;
+  cout << "Age: " << age << endl;
+
+  return 0;
+}
+
+```
+
+</details>
