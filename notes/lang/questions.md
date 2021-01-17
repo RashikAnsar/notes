@@ -84,6 +84,54 @@ int main() {
 
 </details>
 
+<details>
+<summary>Swap values of two variables</summary>
+
+```cpp title="swap_values.cpp"
+#include <iostream>
+
+using namespace std;
+
+int main() {
+  int a = 10, b = 20;
+
+  cout << "Before Swapping... A: " << a  << " B: " <<b << endl;
+
+  // swapping values using third variable temp
+  int temp = a;
+  a = b;
+  b = temp;
+
+  cout << "After Swapping... A: " << a  << " B: " <<b << endl;
+}
+```
+
+<details>
+<summary>Swap the values of two variables without using third variable</summary>
+
+```cpp title="swap_values2.cpp"
+#include <iostream>
+
+using namespace std;
+
+int main() {
+  int a = 10, b = 20;
+
+  cout << "Before Swapping... A: " << a  << " B: " <<b << endl;
+
+  // swapping values wihtout using third variable
+  a = a + b;
+  b = a - b;
+  a = a - b;
+
+  cout << "After Swapping... A: " << a  << " B: " <<b << endl;
+}
+```
+
+</details>
+
+</details>
+
 ## Input/Output
 
 <details>
