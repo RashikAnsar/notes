@@ -216,7 +216,7 @@ int main() {
 <details>
 <summary>Largest among three numbers</summary>
 
-```cpp title="largest3.cpp
+```cpp title="largest3.cpp"
 #include <iostream>
 
 using namespace std;
