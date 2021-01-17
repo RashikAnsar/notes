@@ -106,6 +106,8 @@ int main() {
 }
 ```
 
+:::tip
+
 <details>
 <summary>Swap the values of two variables without using third variable</summary>
 
@@ -129,7 +131,7 @@ int main() {
 ```
 
 </details>
-
+:::
 </details>
 
 ## Input/Output
