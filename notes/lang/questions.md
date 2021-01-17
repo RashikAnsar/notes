@@ -182,3 +182,109 @@ int main() {
 ```
 
 </details>
+
+## Conditionals
+
+<details>
+<summary>Check the given number is odd or even and print</summary>
+
+```cpp title="odd_even.cpp"
+#include <iostream>
+
+using namespace std;
+
+int main() {
+  // even odd and zero is neither even nor odd
+  int n;
+  cin >> n;
+
+  if (n != 0) {
+    if (n % 2 == 0) {
+      cout << n <<" is even" << endl;
+    } else {
+      cout << n <<" is odd" << endl;
+    }
+  } else {
+    cout << n <<" is neither odd nor even." << endl;
+  }
+  return 0;
+}
+```
+
+</details>
+
+<details>
+<summary>Largest among three numbers</summary>
+
+```cpp title="largest3.cpp
+#include <iostream>
+
+using namespace std;
+
+int main() {
+  float a, b, c;
+  cout << "Enter three numbers: ";
+  cin >> a >> b >> c;
+
+  if (a >= b) {
+    if (a >= c) {
+      cout << a <<" is the largest number." << endl;
+    } else {
+      cout << c <<" is the largest number." << endl;
+    }
+  } else {
+    if (b >= c) {
+      cout << b <<" is the largest number." << endl;
+    } else {
+      cout << c <<" is the largest number." << endl;
+    }
+  }
+
+  /** // using logical operators in conditions
+  if (a >= b && a >= c) {
+    cout << a <<" is the largest number." << endl;
+  }
+  else if (b >= a && b >= c) {
+    cout << b <<" is the largest number." << endl;
+  }
+  else {
+    cout << c <<" is the largest number." << endl;
+  }
+  **/
+}
+
+```
+
+</details>
+
+<details>
+<summary>check whether the triangle formed by the given sides(inputs) is equilateral, isosceles, or scalene.</summary>
+
+```cpp title="triangle.cpp"
+#include <iostream>
+
+using namespace std;
+
+int main() {
+  int a, b, c;
+  cout << "Enter three sides of the triangle: ";
+  cin >> a >> b >> c;
+
+// Check for equilateral triangle
+  if (a == b && b == c) { //a = b = c
+    cout << "Equilateral Triangle";
+  }
+  // Check for isoceles triangle
+  else if (a == b || b == c || c == a) { // a=b or b = c or c = a
+    cout << "Isoceles Triangle";
+  }
+  // Otherwise scalene triangle
+  else {
+    cout << "Scalene Triangle";
+  }
+
+  return 0;
+}
+```
+
+</details>
