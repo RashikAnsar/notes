@@ -14,6 +14,20 @@ sidebar_label: C++
 
 `C++` is a general-purpose programming language created by Bjarne Stroustrup as an extension of the C programming language, or "C with Classes".
 
+C++ is a complied language. C++ source files has the `.cpp` extension.
+:::info
+
+<center>
+
+![COMPILATION](./images/build.png)
+
+</center>
+
+- [Source: niu.edu](http://faculty.cs.niu.edu/~mcmahon/CS241/Notes/build.html)
+
+:::  
+C++ is a case-sensitive language.
+
 - Lets write simple c++ program which will print `Hello World` on the screen.
 
 ```cpp title="hello_world.cpp"
