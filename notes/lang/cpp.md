@@ -442,3 +442,110 @@ If shift operators applied on N then `N<<a` will give a result $$N*2^a$$ and `N>
 :::info
 Unary, Conditional and Assignment operators have **Right to Left** associativity
 :::
+
+## Control Flow
+
+The statements inside our source files are generally executed from top to bottom, in the order that they appear. Control flow statements, however, break up the flow of execution by employing decision making, looping, and branching, enabling your program to conditionally execute particular blocks of code
+
+### If statements
+
+If we want to execute some code if and only if some condition is true then we use if statements.
+
+```cpp title="if.cpp"
+// If given number is even print even
+#include <iostream>
+
+using namespace std;
+
+int main() {
+  int n;
+  cin >> n;
+
+  if (n % 2 == 0) {
+    // Here this will be executed only if n is even
+    cout << n <<" is even" << endl;
+  }
+
+  return 0;
+}
+```
+
+### If-Else statements
+
+If we want to execute the specific code block if the condition is true or else it'll execute the else code block. Above in examples of [relational operators](cpp.md#relational-operators) and [logical operators](cpp.md#logical-operators) we've already used if-else statements.
+
+```cpp title="if_else.cpp"
+// Print even for even number and odd for odd number
+#include <iostream>
+
+using namespace std;
+
+int main() {
+  int n;
+  cin >> n;
+
+  if (n % 2 == 0) {
+    // Here this will be executed only if n is even
+    cout << n <<" is even" << endl;
+  } else {
+    // this block will execute only if the if condition is false`
+    cout << n <<" is odd" << endl;
+  }
+
+  return 0;
+}
+```
+
+### if-else-if ladder
+
+If we've more than two alternatives to check and execute only one among them then we use if-else-if ladder
+
+```cpp title="if_else_if.cpp"
+// Print positive if n >= 1 or negative if n<=1 or zero if n ==0
+#include <iostream>
+
+using namespace std;
+
+int main() {
+  int n;
+  cin >> n;
+
+  if (n > 0) {
+    cout << n << " is positive" << endl;
+  } else if (n < 0) {
+    cout << n << " is negative" << endl;
+  } else {
+    cout << n << " is zero" << endl;
+  }
+
+  return 0;
+}
+```
+
+### Nested-If-Else statements
+
+Here we'll have the if-else statements within another if-else statement hence they're known as nested if-else statements.
+
+```cpp title="nested_if_else.cpp"
+#include <iostream>
+
+using namespace std;
+
+int main() {
+  // even odd and zero is neither even nor odd
+  int n;
+  cin >> n;
+
+  if (n != 0) {
+
+    if (n % 2 == 0) {
+      cout << n <<" is even" << endl;
+    } else {
+      cout << n <<" is odd" << endl;
+    }
+  } else {
+    cout << n <<" is neither odd nor even." << endl;
+  }
+  return 0;
+}
+```
