@@ -39,3 +39,47 @@ int main() {
 ```
 
 </details>
+
+## Variables
+
+<details>
+<summary>Create a variable to store your favourite number and print it</summary>
+
+```cpp title="fav_num.cpp"
+#include <iostream>
+
+using namespace std;
+
+int main() {
+  // declare and initialize a variable
+  int favNum = 3;
+  // printing the variable value
+  cout << favNum << endl;
+
+  return 0;
+}
+```
+
+</details>
+
+<details>
+<summary>Create variables to store your name, favourite number and print it</summary>
+
+```cpp title="fav_num.cpp"
+#include <iostream>
+
+using namespace std;
+
+int main() {
+  // declare and initialize variables
+  string myName = "C++";
+  int favNum = 3;
+  // printing the variable value
+  cout << myName << endl;
+  cout << favNum << endl;
+
+  return 0;
+}
+```
+
+</details>
