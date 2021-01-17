@@ -77,7 +77,7 @@ Creating a variable is known as **variable declaration** and assigning some valu
 - Variable name cannot be started with number but variable name can have number in between or end of the name.
 - C++ keywords cannot be used as variable names.
 
-:::info
+:::warning
 Variable names are case-sensitive.
 :::
 

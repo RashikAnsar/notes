@@ -1,7 +1,7 @@
 module.exports = {
   lang: {
     Introduction: ["lang/intro"],
-    Programming: ["lang/cpp"],
+    Programming: ["lang/cpp", "lang/questions"],
   },
   ds: {
     "Data Structures": ["ds/intro"],
