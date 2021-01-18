@@ -692,3 +692,23 @@ int main() {
   return 0;
 }
 ```
+
+### Break statement
+
+Break statement inside any loop will terminate the execution of the loop contiaining it. If nested loop has the break statement then it will break only inner loop but not the outer loop
+
+:::info
+break statement is also used in switch statement to avoid fallthrough
+:::
+
+### Continue statement
+
+Continue satement inside any loop will skip the current iteration. When a continue statement will not terminate the loop rather it continues with next iteration.
+
+### Goto statement
+
+goto statement is used to alter the normal execution of a program and transfer control (unconditionally) to a labeled statement in the same program. In a C++ program we can have multiple goto and label statements, the goto statement is followed by a label name.
+
+:::info
+Label is an identifier, which can be any plain text and can be set anywhere in a C++ program above or below to goto statement. When a goto statement is encountered, compiler transfers the control to a label: specified with goto statement and begin execution from there.
+:::
