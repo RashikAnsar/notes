@@ -447,6 +447,8 @@ Unary, Conditional and Assignment operators have **Right to Left** associativity
 
 The statements inside our source files are generally executed from top to bottom, in the order that they appear. Control flow statements, however, break up the flow of execution by employing decision making, looping, and branching, enabling your program to conditionally execute particular blocks of code
 
+![Control Flow](./images/ControlFlow.svg)
+
 ### If statements
 
 If we want to execute some code if and only if some condition is true then we use if statements.
@@ -549,3 +551,81 @@ int main() {
   return 0;
 }
 ```
+
+### Switch Statement
+
+Switch statement is an alternative for the if-else-if ladder where it compares(equality) a variable with list of values. It looks much cleaner than the if-else-if ladder. If a choice must be made from one of several or more options, and the switch statement can be used, then the switch statement will likely be faster than the corresponding if-else ladder.
+
+```cpp title="switch_statement.cpp"
+#include <iostream>
+
+using namespace std;
+
+int main() {
+  int x;
+  cout << "Enter a single digit number" << endl;
+  cin >> x;
+
+  switch(x) {
+    case 1: // it checks for x== 1
+      cout << "Choice 1" << endl;
+      break;
+
+    case 2: //
+      cout << "Choice 2" << endl;
+      break;
+
+    case 3:
+      cout << "Choice 3" << endl;
+      break;
+
+    default:
+      cout << "Your option is out of range choose between 1 and 3" << endl;
+  }
+
+  return 0;
+}
+```
+
+```cpp title="switch_statement_2.cpp"
+#include <iostream>
+
+using namespace std;
+
+int main() {
+
+  char grade;
+  cout << "Enter your grade in last exams: ";
+  cin >> grade;
+
+  switch(grade) {
+    // user might enter lower-case letters as well so check both cases (A and a)
+    case 'A':
+    case 'a':
+      cout << "Excellent" << endl;
+      break;
+    case 'B':
+    case 'b':
+      cout << "Good" << endl;
+      break;
+    case 'C':
+    case 'c':
+      cout << "Passed" << endl;
+      break;
+    case 'D':
+    case 'd':
+      cout << "Failed... Try again next time" << endl;
+      break;
+    default:
+      cout << "Invalid Grade" << endl;
+  }
+
+  return 0;
+}
+```
+
+:::caution
+
+The `break` statement after switch `cases` is used **to avoid fallthrough** in switch statement i.e. it will not executes all the remaining cases that exist after the true case.
+
+:::
