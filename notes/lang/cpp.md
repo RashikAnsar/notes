@@ -629,3 +629,25 @@ int main() {
 The `break` statement after switch `cases` is used **to avoid fallthrough** in switch statement i.e. it will not executes all the remaining cases that exist after the true case.
 
 :::
+
+### While Loop
+
+> Loop statements are used to execute the block of code repeatedly for a specified number of times (or) until it meets a specified condition. Loop statement are very useful to iterate over collection/list of items or to perform a task for multiple times.
+
+While loop is used to iterate a block of code as long as test expression (condition) is true. For each iteration the test expression will be evaluated. While loop comes handy when number of iterations is unknown.
+
+```cpp title="while.cpp"
+// print numbers from 1 to 10 seperated by ,
+#include <iostream>
+
+using namespace std;
+
+int main() {
+  int n = 1;
+  while (n <= 10) {
+    cout << n << ", ";
+    n++;
+  }
+  return 0;
+}
+```
