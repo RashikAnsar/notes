@@ -672,3 +672,23 @@ int main() {
   return 0;
 }
 ```
+
+### for loop
+
+for-loop is used when the number of iterations is known. It takes **initialization expression**, **test expression** and **update expression**. The initialization expression will be executed only once as it will act as the iterator, test expression and update expression will be evaluated or executed for each iteration once the test expression evaluates to false the loop will be terminated.
+
+```cpp title="for_loop.cpp"
+// print numbers from 1 to 10 seperated by ,
+#include <iostream>
+
+using namespace std;
+
+int main() {
+  // for(initialization expression, test expression, update expression)
+  for(int n = 1; n <= 10; n++) {
+    cout << n << ", ";
+  }
+
+  return 0;
+}
+```
