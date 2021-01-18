@@ -651,3 +651,24 @@ int main() {
   return 0;
 }
 ```
+
+### do-while loop
+
+do-while loop is similar to the while loop but do-while loop **will execute atleast once** even the test expression (condition) is false. First it will execute the code block then evaluates the test expression.
+
+```cpp title="do_while.cpp"
+// print numbers from 1 to 10 seperated by ,
+#include <iostream>
+
+using namespace std;
+
+int main() {
+  int n = 1;
+  do {
+    cout << n << ", ";
+    n++;
+  } while (n <= 10);
+
+  return 0;
+}
+```
