@@ -801,7 +801,7 @@ int main() {
 }
 ```
 
-## Calling a function
+### Calling a function
 
 The functions created in a program are not executed until we call them. When we call the function, control is given to the very first statement inside the called function. To call a function in a program, we have to write a function name followed by values of arguments in the round brackets and the semicolon. We can call a function in any other function in a program.
 
