@@ -728,6 +728,8 @@ There are two types of functions
 1. Library functions: these are predefined
 2. User-defined functions: created by users
 
+![Function Types](./images/func_types.svg)
+
 In C++ function creation consist of two steps. They are
 
 1. Function Declaration
@@ -763,8 +765,8 @@ While declaring the function it's not necessary to give parameter names but we'v
 using namespace std;
 
 // Function declaration (both of them correct we need only one)
-int make_juice(int water_glass, int fruit);
-// int make_juice(int , int);
+int multiply(int num_1, int num_2);
+// int multiply(int , int);
 
 int main() {
   // code;
@@ -778,3 +780,55 @@ There are two ways to pass parameters. They are
 2. **Pass by reference:** Both actual and formal parameters refer to same locations, so any changes made inside the function are actually reflected in actual parameters of caller.
 
 ### Function definition
+
+Function definition contains the group of statements which will do specific task when the function is called.
+
+In C/C++ function declaration and definition can be done at same place but it must be before the main function. Or else we declare the function before main function then we can define the defintion anywhere in the file or in any other module which was included in the program.
+
+```cpp title="func_definition.cpp"
+#include <iostream>
+
+using namespace std;
+
+// declare and define at same place
+int multiply(int num_1, int num_2) {
+  return num_1 * num_2;
+}
+
+int main() {
+  // code;
+  return 0;
+}
+```
+
+## Calling a function
+
+The functions created in a program are not executed until we call them. When we call the function, control is given to the very first statement inside the called function. To call a function in a program, we have to write a function name followed by values of arguments in the round brackets and the semicolon. We can call a function in any other function in a program.
+
+The basic syntax for calling a function is
+
+```cpp
+int main() {
+  function_name(values_of_parameters)
+  return 0;
+}
+```
+
+```cpp title="calling_a_func.cpp"
+#include <iostream>
+
+using namespace std;
+
+int multiply(int num_1, int num_2) {
+  return num_1 * num_2;
+}
+
+int main() {
+  int a = 5, b = 6;
+
+  // calling a function
+  int result = multiply(a, b);
+  cout << result;
+  return 0;
+}
+```
