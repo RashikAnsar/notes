@@ -712,3 +712,69 @@ goto statement is used to alter the normal execution of a program and transfer c
 :::info
 Label is an identifier, which can be any plain text and can be set anywhere in a C++ program above or below to goto statement. When a goto statement is encountered, compiler transfers the control to a label: specified with goto statement and begin execution from there.
 :::
+
+## Functions
+
+In computer language, a function is a block of code that performs a particular task, and it is given a name.
+
+Functions in programming is similar to the mathematical functions. They take something as input, perform some operation on it, and return the output. Functions are reusable (define the code once and use it many times). Functions make the code modular.
+
+:::info
+In C++ the execution of code begins at **`main` function**.
+:::
+
+There are two types of functions
+
+1. Library functions: these are predefined
+2. User-defined functions: created by users
+
+In C++ function creation consist of two steps. They are
+
+1. Function Declaration
+2. Function Definition
+
+### Function Declaration
+
+Function declaration informs the compiler about:
+
+- The return type of function
+- The function name
+- The number of parameters and their data types.
+
+Basic syntax of declaring a function is
+
+```cpp
+return_type function_name(parameters);
+```
+
+#### Return Type
+
+Return Type specifies the type of data a function returns in output to the calling point after performing its task. Few functions doesn't return nothing in ouput such functions have **`void`** return type.
+
+#### Function Parameters
+
+Parameters are nothing but the inputs we are passing to the function to perform some task using them. The parameters passed to function are called **actual parameters** or **arguments**. The parameters received by function are called formal parameters. Passing parameters in a function is optional.
+
+While declaring the function it's not necessary to give parameter names but we've to mention the data type of parameter.
+
+```cpp title="func_declaration.cpp"
+#include <iostream>
+
+using namespace std;
+
+// Function declaration (both of them correct we need only one)
+int make_juice(int water_glass, int fruit);
+// int make_juice(int , int);
+
+int main() {
+  // code;
+  return 0;
+}
+```
+
+There are two ways to pass parameters. They are
+
+1. **Pass by value:** values of actual parameters are copied to function’s formal parameters and the two types of parameters are stored in different memory locations. So any changes made inside functions are not reflected in actual parameters of caller.
+2. **Pass by reference:** Both actual and formal parameters refer to same locations, so any changes made inside the function are actually reflected in actual parameters of caller.
+
+### Function definition
