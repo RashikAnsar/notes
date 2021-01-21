@@ -832,3 +832,23 @@ int main() {
   return 0;
 }
 ```
+
+Lets write a function which calculates area of the rectangle given length and breadth as input.
+
+```cpp title="area_rect.cpp"
+#include <iostream>
+
+using namespace std;
+
+double rect_area(float l, float b) {
+  return l * b;
+}
+
+int main() {
+  float l, b;
+  cin >> l >> b;
+  double area = rect_area(l, b);
+  cout << area << endl;
+  return 0;
+}
+```
