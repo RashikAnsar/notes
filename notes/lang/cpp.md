@@ -920,3 +920,41 @@ int main() {
   return 0;
 }
 ```
+
+## Recursion
+
+If the function calls itself again and again until some condition is met, then such a function is known as a recursive function. This process is known as recursion.
+
+Recursion follows the **_divide and conquer_** strategy. Where the given problem can be divided into sub-problems of itself. It helps us to write shorter code.
+
+A recursive function consist of two cases they are
+
+1. **Base case:** The condition where the function stops calling itself in its body
+2. **Recursive case:** Which calls the function again and again until base conditino is met
+
+Write a function to calculate factorial of given number
+
+```cpp title="factorial.cpp" {7-9,12}
+#include <iostream>
+
+using namespace std;
+
+int factorial(int n) {
+  // base case
+  if(n <= 0 || n == 1) {
+    return 1;
+  }
+
+  // recursive case
+  return n * factorial(n-1);
+}
+
+int main() {
+  int n;
+  cin >> n;
+  cout << factorial(n) << endl;
+  return 0;
+}
+```
+
+All recursive functions can be written using iteration(loops) which is faster compared to recursion since Recursive functions are expensive (inefficient) as they take up a lot of memory and time. Refer [Recursion vs Iteration](https://www.geeksforgeeks.org/difference-between-recursion-and-iteration/)
