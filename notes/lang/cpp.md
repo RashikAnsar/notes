@@ -958,3 +958,34 @@ int main() {
 ```
 
 All recursive functions can be written using iteration(loops) which is faster compared to recursion since Recursive functions are expensive (inefficient) as they take up a lot of memory and time. Refer [Recursion vs Iteration](https://www.geeksforgeeks.org/difference-between-recursion-and-iteration/)
+
+## Arrays
+
+An array is a derived data type. An array is a sequential collection of values of the same data type under the same name are stored at contiguous memory locations. We must provide the size of an array while declaring. The values or elements of array can be accessed using index of the element. In C++ array index starts from 0.
+
+Basic syntax of the array declaration
+
+```cpp
+// declaration
+data_type array_name[size];
+```
+
+```cpp title="average.cpp"
+// given 5 values find average
+#include <iostream>
+
+using namespace std;
+
+int main() {
+  int arr[5] = {10, 22, 42, 57, 31};
+  float ans, total = 0;
+
+  for(int i = 0; i <5; i++) {
+    total += arr[i];
+  }
+
+  ans = total / 5;
+  cout << ans;
+  return 0;
+}
+```
