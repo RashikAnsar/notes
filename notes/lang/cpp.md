@@ -1130,3 +1130,46 @@ int main() {
   return 0;
 }
 ```
+
+## Reference Variable
+
+A reference is an alias, or an alternate name to an existing variable. The main use of references is acting as function formal parameters to support pass-by-reference. When an reference variable is passed into a function, the function works on the original copy (instead of a clone copy in pass-by-value). Changes inside the function are reflected outside the function. A reference is similar to a pointer. In many cases, a reference can be used as an alternative to pointer, in particular, for the function parameter.
+
+`&` is known as Reference operator or address-of operator based on the context (expression) it's used. When we declare a reference variable we do not create a new object in memory, we just declare alternate name for an existing variable. The original variable and reference variable are infact same memory location called by different names.
+
+Reference variable syntax
+
+```cpp
+type& ref_variable_name = existing_var_name;
+```
+
+:::info
+After the reference relationship is established, it cannot be changed.
+:::
+
+```cpp title="reference.cpp"
+#include <iostream>
+
+using namespace std;
+
+int main() {
+  int number = 75;
+  // reference variable
+  int &number_ref = number;
+
+  cout << number << endl;
+  cout << number_ref << endl;
+
+  number_ref = 28;
+  cout << number << endl;
+  cout << number_ref << endl;
+
+  number = 89;
+  cout << number << endl;
+  cout << number_ref << endl;
+
+  return 0;
+}
+```
+
+It shall be read as “number_ref is a reference to number, or “number_ref is an alias of number”. You can now refer to the variable as number_ref or number
