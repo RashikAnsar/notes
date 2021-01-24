@@ -1063,3 +1063,70 @@ int main() {
   return 0;
 }
 ```
+
+## Pointers
+
+Pointers is a variable which stores the address of another variable instead of value. The address of a variable is in the hexa-decimal format which can be obtained using **address-of** operator `&`.
+
+:::info
+The number that uniquely identifies the location in the memory is known as the memory address.
+:::
+
+Syntax of pointer declaration and initialization.
+
+```cpp
+// declaration
+data_type *pointer_name;
+
+// intialization
+pointer_name = &some_variable_name;
+```
+
+It’s a good practice to use **ptr** in a pointer’s variable name. It indicates that a variable is a pointer, and it must be handled differently.
+
+The pointer will have the address of the variable. If we want to access the value present at that address then we'll use **indirection** or **dereference operator** `*`. The dereference operator \* is a unary operator. It gives the value of the variable to which the pointer is pointing. This process is known as dereferencing a pointer.
+
+:::warning
+A pointer must be valid before it is dereferenced. Dereferencing a null pointer or an uninitialized pointer causes undefined behavior. Your program might crash, but it might just as well keep running and start giving strange results.
+:::
+
+### Null Pointer
+
+If the pointer is pointing to nothing, then it will be initialized to **nullptr**. It is known as a null pointer. The value of the null pointer is 0.
+
+:::caution
+Dereferencing a null pointer (`*p`) causes an `STATUS_ACCESS_VIOLATION` exception
+:::
+
+Simple pointer program
+
+```cpp title="pointer.cpp"
+#include <iostream>
+
+using namespace std;
+
+int main() {
+  int number = 75;
+  // declared and initialized a pointer
+  int *number_ptr = &number;
+
+  // print the number variable
+  cout << number << endl;
+  // print the address of number variable stored in pointer
+  cout << number_ptr << endl;
+  // print the value at which pointer is pointing
+  cout << *number_ptr << endl;
+
+  // change the value at the number_ptr address to 28
+  *number_ptr = 28;
+
+  // print the number variable
+  cout << number << endl;
+  // print the address of number variable stored in pointer
+  cout << number_ptr << endl;
+  // print the value at which pointer is pointing
+  cout << *number_ptr << endl;
+
+  return 0;
+}
+```
