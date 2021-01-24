@@ -1173,3 +1173,14 @@ int main() {
 ```
 
 It shall be read as “number_ref is a reference to number, or “number_ref is an alias of number”. You can now refer to the variable as number_ref or number
+
+## References vs Pointer
+
+Pointers and references are equivalent, except:
+
+| Reference                                                                                          | Pointer                                                                 |
+| -------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------- |
+| A reference must be initialized when it is declared.                                               | A pointer can be initialized to any value anytime after it is declared. |
+| References cannot be NULL.                                                                         | A pointer can be assigned to point to a NULL value.                     |
+| References can be used ,simply, by name.                                                           | Pointers need to be dereferenced with a `*`.                            |
+| Once a reference is initialized to a variable, it cannot be changed to refer to a variable object. | A pointer can be changed to point to any variable of the same type.     |
