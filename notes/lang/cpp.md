@@ -1184,3 +1184,37 @@ Pointers and references are equivalent, except:
 | References cannot be NULL.                                                                         | A pointer can be assigned to point to a NULL value.                     |
 | References can be used ,simply, by name.                                                           | Pointers need to be dereferenced with a `*`.                            |
 | Once a reference is initialized to a variable, it cannot be changed to refer to a variable object. | A pointer can be changed to point to any variable of the same type.     |
+
+```cpp title="reference_vs_pointer.cpp"
+/* References vs. Pointers (TestReferenceVsPointer.cpp) */
+#include <iostream>
+
+using namespace std;
+
+int main() {
+  int number1 = 88, number2 = 22;
+
+  // Create a pointer pointing to number1
+  int *pNumber1 = &number1;
+  *pNumber1 = 99;
+  cout << *pNumber1 << endl;
+  cout << &number1 << endl;
+  cout << pNumber1 << endl;
+  cout << &pNumber1 << endl;
+  pNumber1 = &number2;
+
+  // Create a reference (alias) to number1
+  int &refNumber1 = number1;
+  refNumber1 = 11;
+  cout << refNumber1 << endl;
+  cout << &refNumber1 << endl;
+
+  refNumber1 = number2;  // refNumber1 is still an alias to number1.
+
+  // Assign value of number2 (22) to refNumber1 (and number1).
+  number2++;
+  cout << refNumber1 << endl;
+  cout << number1 << endl;
+  cout << number2 << endl;
+}
+```
