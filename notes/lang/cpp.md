@@ -1218,3 +1218,84 @@ int main() {
   cout << number2 << endl;
 }
 ```
+
+## Pass by reference in function
+
+In C/C++, by default, arguments are passed into functions by value (except arrays which is treated as pointers). That is, a clone copy of the argument is made and passed into the function. Changes to the clone copy inside the function has no effect to the original argument in the caller. In other words, the called function has no access to the variables in the caller.
+
+```cpp title="pass_by_value.cpp"
+#include <iostream>
+using namespace std;
+
+int square(int);
+
+int main() {
+   int number = 8;
+   cout <<  "In main(): " << &number << endl;  // 0x22ff1c
+   cout << number << endl;         // 8
+   cout << square(number) << endl; // 64
+   cout << number << endl;         // 8 - no change
+}
+
+int square(int n) {  // non-const
+   cout <<  "In square(): " << &n << endl;  // 0x22ff00
+   n *= n;           // clone modified inside the function
+   return n;
+}
+```
+
+### With pointer arguments
+
+In many situations, we may wish to modify the original copy directly (especially in passing huge object or array) to avoid the overhead of cloning. This can be done by passing a pointer of the object into the function, known as pass-by-reference.
+
+```cpp title="pass_by_ref_pointers.cpp"
+#include <iostream>
+using namespace std;
+
+void square(int *);
+
+int main() {
+   int number = 8;
+   cout <<  "In main(): " << &number << endl;  // 0x22ff1c
+   cout << number << endl;   // 8
+   square(&number);          // Explicit referencing to pass an address
+   cout << number << endl;   // 64
+}
+
+void square(int * pNumber) {  // Function takes an int pointer (non-const)
+   cout <<  "In square(): " << pNumber << endl;  // 0x22ff1c
+   *pNumber *= *pNumber;      // Explicit de-referencing to get the value pointed-to
+}
+```
+
+### with Reference Arguments
+
+Instead of passing pointers into function, you could also pass references into function, to avoid the clumsy syntax of referencing and dereferencing.
+
+```cpp title="pass_by_ref.cpp"
+#include <iostream>
+using namespace std;
+
+void square(int &);
+
+int main() {
+   int number = 8;
+   cout <<  "In main(): " << &number << endl;  // 0x22ff1c
+   cout << number << endl;  // 8
+   square(number);          // Implicit referencing (without '&')
+   cout << number << endl;  // 64
+}
+
+void square(int & rNumber) {  // Function takes an int reference (non-const)
+   cout <<  "In square(): " << &rNumber << endl;  // 0x22ff1c
+   rNumber *= rNumber;        // Implicit de-referencing (without '*')
+}
+```
+
+:::note
+Referencing (in the caller) and dereferencing (in the function) are done implicitly. The only coding difference with pass-by-value is in the function's parameter declaration.
+:::
+
+Recall that references are to be initialized during declaration. In the case of function formal parameter, the references are initialized when the function is invoked, to the caller's arguments.
+
+References are primarily used in passing reference in/out of functions to allow the called function accesses variables in the caller directly.
