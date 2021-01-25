@@ -1455,3 +1455,105 @@ int & squareRef(int number) {
    return *dynamicAllocatedResult;
 }
 ```
+
+## Dynamic Memory Allocation
+
+Sometimes we need to create objects in memory during run time. This happens when we do not know the size of the object when we create and compile the program. Heap memory (also called free memory or dynamic memory) is used to store objects created during run time. This situation occurs when an object, or a collection of objects, needs a lot of memory or when the amount of memory cannot be calculated during the compilation. The objects created in heap memory cannot have a name, so to access them, we need a pointer in stack memory that can be pointed to them.
+
+:::info
+An object created in heap memory cannot have a name; it can be accessed only through its address, which is reached by a pointer in stack memory.
+:::
+
+### `new` and `delete` operators
+
+`new` operator is used to allocate memory dynamically. `new` operation returns a pointer to the memory allocated.
+
+`delete` operator is used to free the memory. The `delete` operator takes a pointer (pointing to the memory allocated via new) as its sole argument.
+
+:::note
+Avoid using `malloc()` and `free()` from C. Instead, use `new` and `delete`, or `new[]` and `delete[]`.
+:::
+
+```cpp title="dynamic_memory.cpp"
+#include <iostream>
+
+using namespace std;
+
+int main() {
+  // Static allocation
+  int number = 88;
+  int * p1 = &number;  // Assign a "valid" address into pointer
+
+  // Dynamic Allocation
+  int * p2;            // Not initialize, points to somewhere which is invalid
+  cout << p2 << endl; // Print address before allocation
+  p2 = new int;       // Dynamically allocate an int and assign its address to pointer
+                      // The pointer gets a valid address with memory allocated
+  *p2 = 99;
+  cout << p2 << endl;  // Print address after allocation
+  cout << *p2 << endl; // Print value point-to
+  delete p2;           // Remove the dynamically allocated storage
+}
+```
+
+To initialize the allocated memory, you can use an initializer for fundamental types, or invoke a constructor for an object.
+
+```cpp title="dynamic_memory2.cpp"
+#include <iostream>
+
+using namespace std;
+
+int main() {
+  // use an initializer to initialize a fundamental type (such as int, double)
+  int * p1 = new int(88);
+  double * p2 = new double(1.23);
+
+  // C++11 brace initialization syntax
+  int * p1 = new int {88};
+  double * p2 = new double {1.23};
+
+  // invoke a constructor to initialize an object (such as Date, Time)
+  Date * date1 = new Date(1999, 1, 1);
+  Time * time1 = new Time(12, 34, 56);
+}
+```
+
+### `new[]` and `delete[]` Operators
+
+Dynamic array is allocated at runtime rather than compile-time, via the `new[]` operator. To remove the storage, you need to use the `delete[]` operator (instead of simply delete).
+
+```cpp
+#include <iostream>
+#include <cstdlib>
+using namespace std;
+
+int main() {
+  const int SIZE = 5;
+  int * pArray;
+
+  pArray = new int[SIZE];  // Allocate array via new[] operator
+
+  // Assign random numbers between 0 and 99
+  for (int i = 0; i < SIZE; ++i) {
+    *(pArray + i) = rand() % 100;
+  }
+  // Print array
+  for (int i = 0; i < SIZE; ++i) {
+    cout << *(pArray + i) << " ";
+  }
+  cout << endl;
+
+  delete[] pArray;  // Deallocate array via delete[] operator
+
+
+  // C++11
+  int * p = new int[5] {1, 2, 3, 4, 5};
+  delete[] p
+
+  return 0;
+}
+```
+
+:::warning
+To prevent memory leaks, every call to `new` should be paired with a call to `delete`, and every call to `new[]` should be paired with a call to `delete[]`. Not calling `delete` or `delete[]`, or mismatching calls, results in memory leaks.
+:::
