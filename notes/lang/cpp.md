@@ -1349,3 +1349,109 @@ int squareNonConstRef(int & number) {  // non-const reference
    return number * number;
 }
 ```
+
+## Passing the Function's Return Value
+
+### Passing the Return-value as Reference
+
+You can also pass the return-value as reference or pointer.
+
+```cpp title="pass_by_ref_return.cpp"
+#include <iostream>
+using namespace std;
+
+int & squareRef(int &);
+int * squarePtr(int *);
+
+int main() {
+   int number1 = 8;
+   cout <<  "In main() &number1: " << &number1 << endl;  // 0x22ff14
+   int & result = squareRef(number1);
+   cout <<  "In main() &result: " << &result << endl;  // 0x22ff14
+   cout << result << endl;   // 64
+   cout << number1 << endl;  // 64
+
+   int number2 = 9;
+   cout <<  "In main() &number2: " << &number2 << endl;  // 0x22ff10
+   int * pResult = squarePtr(&number2);
+   cout <<  "In main() pResult: " << pResult << endl;  // 0x22ff10
+   cout << *pResult << endl;   // 81
+   cout << number2 << endl;    // 81
+}
+
+int & squareRef(int & rNumber) {
+   cout <<  "In squareRef(): " << &rNumber << endl;  // 0x22ff14
+   rNumber *= rNumber;
+   return rNumber;
+}
+
+int * squarePtr(int * pNumber) {
+   cout <<  "In squarePtr(): " << pNumber << endl;  // 0x22ff10
+   *pNumber *= *pNumber;
+   return pNumber;
+}
+```
+
+:::danger
+You should not pass Function's local variable as return value by reference
+
+```cpp title="pass_local_result.cpp"
+#include <iostream>
+using namespace std;
+
+int * squarePtr(int);
+int & squareRef(int);
+
+int main() {
+   int number = 8;
+   cout << number << endl;  // 8
+   cout << *squarePtr(number) << endl;  // ??
+   cout << squareRef(number) << endl;   // ??
+}
+
+int * squarePtr(int number) {
+   int localResult = number * number;
+   return &localResult;
+      // warning: address of local variable 'localResult' returned
+}
+
+int & squareRef(int number) {
+   int localResult = number * number;
+   return localResult;
+      // warning: reference of local variable 'localResult' returned
+}
+```
+
+This program has a serious logical error, as local variable of function is passed back as return value by reference. Local variable has local scope within the function, and its value is destroyed after the function exits. The GCC compiler is kind enough to issue a warning (but not error).
+:::
+
+It is safe to return a reference that is passed into the function as an argument.
+
+### Passing Dynamically Allocated Memory as Return Value by Reference
+
+Instead, you need to dynamically allocate a variable for the return value, and return it by reference.
+
+```cpp title="return_new.cpp"
+#include <iostream>
+using namespace std;
+
+int * squarePtr(int);
+int & squareRef(int);
+
+int main() {
+   int number = 8;
+   cout << number << endl;  // 8
+   cout << *squarePtr(number) << endl;  // 64
+   cout << squareRef(number) << endl;   // 64
+}
+
+int * squarePtr(int number) {
+   int * dynamicAllocatedResult = new int(number * number);
+   return dynamicAllocatedResult;
+}
+
+int & squareRef(int number) {
+   int * dynamicAllocatedResult = new int(number * number);
+   return *dynamicAllocatedResult;
+}
+```
