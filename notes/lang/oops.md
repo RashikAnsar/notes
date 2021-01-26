@@ -85,6 +85,22 @@ The non static methods on the other hand are called on an instance of a class or
 
 ### Constructor and Destructor
 
+A constructor is a member function that creates an object when it is called and initializes the data members of an object when it is executed. The declaration of the data members in the class definition does not initialize the data members; the declaration just gives the names and the types of the data members
+
+A constructor has two characteristics: It does not have a return value, and its name is the same as the name of the class. A constructor cannot have a return value (not even void) because it is not designed to return anything; its purpose is different. It creates an object and initializes the data members. Although we will see that a constructor may also do some other tasks, such as validation of values, these tasks are also considered part of the initialization.
+
+We can have three types of constructors in a class
+
+1. parameter constructors
+2. default constructors
+3. copy constructors
+
+:::caution
+The parameter constructor can be overloaded for a class but not other constructors.
+:::
+
+Like a constructor, a destructor has two special characteristics. First, the name of the destructor is the name of the class preceded by a tilde symbol (`~`), but the tilde is added to the first name, not the last name (the last name is the same for all member functions). Second, like a constructor, a destructor cannot have a return value (not even void) because it returns nothing. A destructor is guaranteed to be automatically called and executed by the system when the object instantiated from the class goes out of scope. In other words, if we have instantiated five objects from the class, the destructor is automatically called five times to guarantee that all objects are cleaned up. Cleanup is most important if the constructed has called resources such as files. After the program is terminated, the allocated memory is recycled. A destructor can take no arguments, which means it cannot be overloaded.
+
 :::info
 A constructor is a special member function that creates and initializes an object.
 
