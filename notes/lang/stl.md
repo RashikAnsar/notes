@@ -212,3 +212,38 @@ The abbreviation SC must be replaced with one of the three sequence containers (
 | ------------------------------------------------------- | :----: | :---: | :--: |
 | `bool operator op(const SC<T> left, const SC<T> right)` |   ✓    |   ✓   |  ✓   |
 | `void swap(SC<T>& left, SC<T>& right)`                  |   ✓    |   ✓   |  ✓   |
+
+## Container Adaptors
+
+The term container adaptor, refers to an "adaptation" of one of the first-class containers by modifying and restricting its interface for some special purpose. The container adapters defined in the library are stack, queue, and priority_queue.
+
+:::note
+Container adapters cannot be used with algorithms because they do not provide support for iterators.
+:::
+
+### Public Interface
+
+The abbreviation `Ad` can be replaced with one of the three adapters (stack, queue, or priority_queue) when the corresponding column is ticked. Each of these adapters is a template class in which T defines the type of the element in the container.
+
+| Constructor       |  Stack  |  Queue  | Priority_Queue |
+| ----------------- | :-----: | :-----: | :------------: |
+| `Ad <T> :: Ad ()` | &check; | &check; |    &check;     |
+
+| Checking size and emptiness       |  Stack  |  Queue  | Priority_Queue |
+| --------------------------------- | :-----: | :-----: | :------------: |
+| `size_type Ad<T> :: size() const` | &check; | &check; |    &check;     |
+| `bool Ad <T> :: empty() const`    | &check; | &check; |    &check;     |
+
+| Accessing elements     |  Stack  |  Queue  | Priority_Queue |
+| ---------------------- | :-----: | :-----: | :------------: |
+| `T& Ad <T> :: front()` |         | &check; |                |
+| `T& Ad <T> :: back()`  |         | &check; |                |
+| `T& Ad <T> :: top()`   | &check; |         |    &check;     |
+
+| Insertion                            |  Stack  |  Queue  | Priority_Queue |
+| ------------------------------------ | :-----: | :-----: | :------------: |
+| `void Ad <T> :: push(const T& elem)` | &check; | &check; |    &check;     |
+
+| Erasure                |  Stack  |  Queue  | Priority_Queue |
+| ---------------------- | :-----: | :-----: | :------------: |
+| `void Ad <T> :: pop()` | &check; | &check; |    &check;     |
