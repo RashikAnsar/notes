@@ -126,3 +126,89 @@ The type `const_iterator` defines an iterator type in which the dereferenced ite
 :::info
 `const_iterators` and `const_reverse_iterators` provide read-only access to elements of the container.
 :::
+
+## Containers
+
+![Containers](./images/containers.svg)
+:::note
+The C++ Standard Library containers are homogeneous: they allow elements of only one type in each container.
+:::
+
+- [Containers REFERENCE 1](https://en.cppreference.com/w/cpp/container)
+- [Containers REFERENCE 2](https://www.cplusplus.com/reference/stl/)
+
+## Sequence Containers
+
+Sequence containers are ordered collections in which every element has a certain position. This position depends on the time and place of the insertion, but it is independent of the value of the element.
+
+### General public interface of Sequence Containers
+
+The abbreviation SC must be replaced with one of the three sequence containers (vector, deque, or list) when the corresponding column is ticked. Each of these containers is a template class in which T defines the type of the element in the container. The typename T can be any built-in or user-defined type. We have used iter for an iterator, inIter for an input iterator, and pred for a Boolean function returning true or false.
+
+| Constructors, assignment, and destructor             | Vector  |  Deque  |  List   |
+| ---------------------------------------------------- | :-----: | :-----: | :-----: |
+| `SC <T> :: SC()`                                     | &check; | &check; | &check; |
+| `SC <T> :: SC(size\*type n, const T& value = T())`   | &check; | &check; | &check; |
+| `SC <T> :: SC(const_iter first, const_iter last)`    | &check; | &check; | &check; |
+| `SC <T> :: SC(const SC <T>& other)`                  | &check; | &check; | &check; |
+| `SC <T>& SC <T> :: operator =(const SC <T> & other)` | &check; | &check; | &check; |
+| `SC <T> :: ~SC()`                                    | &check; | &check; | &check; |
+
+| Size and capacity                                    | Vector | Deque | List |
+| ---------------------------------------------------- | :----: | :---: | :--: |
+| `size_type SC <T> :: size()`                         |   ✓    |   ✓   |  ✓   |
+| `size_type SC <T> :: max_size()`                     |   ✓    |   ✓   |  ✓   |
+| `void SC <T> :: resize(size_type n, T value = T() )` |   ✓    |   ✓   |  ✓   |
+| `bool SC <T> :: empty()`                             |   ✓    |   ✓   |  ✓   |
+| `size_type SC <T> :: capacity()`                     |   ✓    |       |      |
+| `void SC <T> :: reserve(size_type, n)`               |   ✓    |       |      |
+
+| Accessing elements (constant and nonconstant versions) | Vector | Deque | List |
+| ------------------------------------------------------ | :----: | :---: | :--: |
+| `T& SC <T> :: front()`                                 |   ✓    |   ✓   |  ✓   |
+| `T& SC <T> :: back()`                                  |   ✓    |   ✓   |  ✓   |
+| `T& SC <T> :: operator[ ]()(size_type index)`          |   ✓    |   ✓   |      |
+| `T& SC <T> :: at(size_type index)`                     |   ✓    |   ✓   |      |
+
+| Iterators (regular and constant\* iterator versions) | Vector | Deque | List |
+| ---------------------------------------------------- | :----: | :---: | :--: |
+| `iter SC <T> :: begin()`                             |   ✓    |   ✓   |  ✓   |
+| `iter SC <T> :: end()`                               |   ✓    |   ✓   |  ✓   |
+| `reverse_iter SC <T> :: rbegin()`                    |   ✓    |   ✓   |  ✓   |
+| `reverse_iter SC <T> :: rend()`                      |   ✓    |   ✓   |  ✓   |
+
+| Insertion                                                      | Vector | Deque | List |
+| -------------------------------------------------------------- | :----: | :---: | :--: |
+| `void SC <T> :: push_front(const T& value)`                    |        |   ✓   |  ✓   |
+| `void SC <T> :: push_back(const T& value)`                     |   ✓    |   ✓   |  ✓   |
+| `iter SC <T> :: insert(iter pos, const T& value)`              |   ✓    |   ✓   |  ✓   |
+| `void SC <T> :: insert(iter pos, size_type n, const T& value)` |   ✓    |   ✓   |  ✓   |
+| `void SC <T> :: insert(iter pos, InIter first, inIter last)`   |   ✓    |   ✓   |  ✓   |
+
+| Erasure                                         | Vector | Deque | List |
+| ----------------------------------------------- | :----: | :---: | :--: |
+| `void SC <T> :: pop_front()`                    |        |   ✓   |  ✓   |
+| `void SC <T> :: pop_back()`                     |   ✓    |   ✓   |  ✓   |
+| `iter SC <T> :: erase(iter pos)`                |   ✓    |   ✓   |  ✓   |
+| `iter SC <T> :: erase(iter first, iter second)` |   ✓    |   ✓   |  ✓   |
+| `void SC <T> :: clear()`                        |   ✓    |   ✓   |  ✓   |
+| `void SC <T> :: remove(const T& value)`         |        |       |  ✓   |
+| `void SC <T> :: remove_if(pred p)`              |        |       |  ✓   |
+| `void SC <T> :: unique(pred p)`                 |        |       |  ✓   |
+
+| Splice, merge, and sort                                      | Vector | Deque | List |
+| ------------------------------------------------------------ | :----: | :---: | :--: |
+| `void SC <T>::splice(iter pos, SC<T> other)`                 |        |       |  ✓   |
+| `void SC <T>::splice(iter pos, SC<T> other, iter other)`     |        |       |  ✓   |
+| `void SC <T>::splice(iter pos, SC<T> other, iter i, iter j)` |        |       |  ✓   |
+| `void SC <T>:: merge(SC<T> other)`                           |        |       |  ✓   |
+| `void SC <T> :: sort()`                                      |        |       |  ✓   |
+
+| Swapping                            | Vector | Deque | List |
+| ----------------------------------- | :----: | :---: | :--: |
+| `void SC <T> :: swap(SC<T>& other)` |   ✓    |   ✓   |  ✓   |
+
+| Global functions (op means <, <=, >, >=, == or !=)      | Vector | Deque | List |
+| ------------------------------------------------------- | :----: | :---: | :--: |
+| `bool operator op(const SC<T> left, const SC<T> right)` |   ✓    |   ✓   |  ✓   |
+| `void swap(SC<T>& left, SC<T>& right)`                  |   ✓    |   ✓   |  ✓   |
