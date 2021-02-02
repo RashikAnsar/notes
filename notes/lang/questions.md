@@ -288,3 +288,92 @@ int main() {
 ```
 
 </details>
+
+## Loops
+
+:::tip
+Check out for pattern questions on GeeksForGeeks or [Here](https://codescracker.com/cpp/program/cpp-program-print-star-pyramid-patterns.htm)
+:::
+
+<details>
+<summary>Read N numbers and print their average. HINT: You would be given first N, and then N integers of the list.</summary>
+
+```cpp title="average.cpp"
+#include <iostream>
+
+using namespace std;
+
+int main() {
+  int N, num, total= 0;
+  cin >> N;
+  int count = N;
+  while(count--) {
+    cin >> num;
+    total += num;
+  }
+  cout << "Average :" << (total/N) << endl;
+  return 0;
+}
+```
+
+</details>
+
+<details>
+<summary>Given a number check if it is a member of Fibonacci sequence or not?</summary>
+
+```cpp title="is_Fibonacci.cpp"
+#include <iostream>
+
+using namespace std;
+
+int main() {
+  int n, a = 0, b = 1, c = a + b;
+  cin >> n;
+
+  if(n == a || n == b) {
+    cout << "Fibonacci Sequence Number" << endl;
+    return 0;
+  }
+
+  while(c <= n) {
+    if (n == c) {
+      cout << "Fibonacci Sequence Number" << endl;
+      return 0;
+    }
+    a = b;
+    b = c;
+    c = a + b;
+  }
+  cout << "Not a Fibonacci Sequence Number" << endl;
+
+  return 0;
+}
+```
+
+</details>
+
+<details>
+<summary>Given a number N, find sum of its digits</summary>
+
+```cpp title="sum_of_digits.cpp"
+#include <iostream>
+
+using namespace std;
+
+int main() {
+  long long n;
+  int rem, total = 0;
+  cin >> n;
+
+  while (n > 0) {
+    rem = n % 10;
+    total += rem;
+    n /= 10;
+  }
+  cout << total << endl;
+
+  return 0;
+}
+```
+
+</details>
