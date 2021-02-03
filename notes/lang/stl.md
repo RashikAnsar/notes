@@ -247,3 +247,5 @@ The abbreviation `Ad` can be replaced with one of the three adapters (stack, que
 | Erasure                |  Stack  |  Queue  | Priority_Queue |
 | ---------------------- | :-----: | :-----: | :------------: |
 | `void Ad <T> :: pop()` | &check; | &check; |    &check;     |
+
+## Algorithms

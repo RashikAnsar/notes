@@ -289,6 +289,52 @@ int main() {
 
 </details>
 
+<details>
+<summary>
+Given coefficients of a quadratic equation , you need to print the nature of the roots (Real and Distinct , Real and Equal or Imaginary) and the roots.
+
+If Real and Distinct , print the roots in increasing order.
+If Real and Equal , print the same repeating root twice
+If Imaginary , no need to print the roots.
+
+Note : Print only the integer part of the roots.
+
+</summary>
+
+```cpp title="quadratic_equation.cpp"
+#include <cmath>
+#include <iostream>
+
+using namespace std;
+
+int main() {
+  int a, b, c, d;
+  cin >> a >> b >> c;
+  d = (b * b) - (4 * a * c);
+  int root1 = (sqrt(d) - b) / (2 * a);
+  int root2 = -1 * (sqrt(d) + b) / (2 * a);
+
+  //   when b2 − 4ac is positive, we get two Real solutions
+  if (d > 0 && a != 0) {
+    cout << "Real and Distinct" << endl;
+    cout << root2 << " " << root1 << endl;
+  }
+  // when it is zero we get just ONE real solution (both answers are the same)
+  else if (d == 0 && a != 0) {
+    cout << "Real and Equal" << endl;
+    cout << root1 << " " << root1 << endl;
+  }
+  // when it is negative we get a pair of Complex solutions
+  else {
+    cout << "Imaginary" << endl;
+  }
+
+  return 0;
+}
+```
+
+</details>
+
 ## Loops
 
 :::tip
@@ -372,6 +418,41 @@ int main() {
   }
   cout << total << endl;
 
+  return 0;
+}
+```
+
+</details>
+
+## Functions
+
+<details>
+<summary>Write a function to reverse the given number N as input.</summary>
+
+```cpp title="reverse_num.cpp"
+#include <iostream>
+
+using namespace std;
+
+int reverse(int num) {
+  int rev_num = 0;
+  while (num > 0) {
+    rev_num = rev_num * 10 + num % 10;
+    num = num / 10;
+  }
+  return rev_num;
+}
+
+int main() {
+  int num;
+  cin >> num;
+  int ans = 0;
+  while (num > 0) {
+    ans = ans * 10 + num % 10;
+    num = num / 10;
+  }
+
+  cout << ans << endl;
   return 0;
 }
 ```
