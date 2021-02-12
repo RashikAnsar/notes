@@ -4,6 +4,8 @@ title: Introduction
 sidebar_label: Introduction
 ---
 
+> A data structure is a collection of data values, the relationships among them, and the functions or operations that can be applied to the data.
+
 Data structure is a particular way of storing and organizing data in a computer so that it can be used efficiently. A data structure is a special format for organizing and storing data. General data structure types include arrays, files, linked lists, stacks, queues, trees, graphs and so on.
 
 Depending on the organization of the elements, data structures are classified into two types:
