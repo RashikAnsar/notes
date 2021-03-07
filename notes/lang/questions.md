@@ -3,6 +3,8 @@ id: questions
 title: Practice Questions
 sidebar_label: C++ Work Sheet
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 ## Overview
 
@@ -422,6 +424,50 @@ int main() {
 }
 ```
 
+</details>
+
+### Patterns
+
+<details>
+<summary>Print the following pattern (square)</summary>
+<Tabs
+  className="unique-tabs"
+  defaultValue="_out"
+  values={[
+    {label: 'Input', value: '_in'},
+    {label: 'Output', value: '_out'},
+  ]}>
+  <TabItem value="_in"><code>n = 5</code></TabItem>
+  <TabItem value="_out">
+
+  ```cpp
+  * * * * *
+  * * * * *
+  * * * * *
+  * * * * *
+  * * * * * 
+  ```
+  </TabItem>
+</Tabs>
+
+```cpp title="pattern.cpp"
+#include <iostream>
+
+using namespace std;
+
+int main() {
+  int n;
+  cin >> n;
+  for (int i = 1; i <= n; i++) {
+    for (int j = 1; j <= n; j++) {
+      cout << "* ";
+    }
+    cout << endl;
+  }
+
+  return 0;
+}
+```
 </details>
 
 ## Functions
