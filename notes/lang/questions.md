@@ -470,6 +470,49 @@ int main() {
 ```
 </details>
 
+<details>
+<summary>Print the following pattern (Rectangle)</summary>
+
+<Tabs
+  className="unique-tabs"
+  defaultValue="_out"
+  values={[
+    {label: 'Input', value: '_in'},
+    {label: 'Output', value: '_out'},
+  ]}>
+  <TabItem value="_in"><code>row = 4 col = 7</code></TabItem>
+  <TabItem value="_out">
+
+  ```cpp
+  *******
+  *******
+  *******
+  *******
+  ```
+  </TabItem>
+</Tabs>
+
+```cpp title="pattern.cpp"
+#include <iostream>
+
+using namespace std;
+
+int main() {
+  int row, col;
+  cin >> row >> col;
+  for (int i = 1; i <= row; i++) {
+    for (int j = 1; j <= col; j++) {
+      cout << "*";
+    }
+    cout << endl;
+  }
+
+  return 0;
+}
+```
+</details>
+
+
 ## Functions
 
 <details>
