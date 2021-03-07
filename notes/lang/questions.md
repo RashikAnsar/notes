@@ -559,6 +559,51 @@ int main() {
 </details>
 
 <details>
+<summary>Print the following pattern </summary>
+
+<Tabs
+  className="unique-tabs"
+  defaultValue="_out"
+  values={[
+    {label: 'Input', value: '_in'},
+    {label: 'Output', value: '_out'},
+  ]}>
+  <TabItem value="_in"><code>n = 6</code></TabItem>
+  <TabItem value="_out">
+
+  ```cpp
+  1
+  2 2
+  3 3 3
+  4 4 4 4
+  5 5 5 5 5
+  6 6 6 6 6 6
+  ```
+  </TabItem>
+</Tabs>
+
+```cpp title="pattern.cpp"
+#include <iostream>
+
+using namespace std;
+
+int main() {
+  int n;
+  cin >> n;
+
+  for (int i = 1; i <= n; i++) {
+    for (int j = 1; j <= i; j++) {
+      cout << i << " ";
+    }
+    cout << endl;
+  }
+
+  return 0;
+}
+```
+</details>
+
+<details>
 <summary>Print the following pattern (Floyd's Triangle)</summary>
 
 <Tabs
