@@ -695,6 +695,55 @@ int main() {
 ```
 </details>
 
+<details>
+<summary>Print the following pattern (Inverted Half Pyramid)</summary>
+
+<Tabs
+  className="unique-tabs"
+  defaultValue="_out"
+  values={[
+    {label: 'Input', value: '_in'},
+    {label: 'Output', value: '_out'},
+  ]}>
+
+  <TabItem value="_in">
+
+  ```cpp
+  n = 5
+  ```
+  </TabItem>
+  <TabItem value="_out">
+
+  ```cpp
+  * * * * * 
+  * * * * 
+  * * * 
+  * * 
+  * 
+  ```
+  </TabItem>
+</Tabs>
+
+```cpp title="pattern.cpp"
+#include <iostream>
+
+using namespace std;
+
+int main() {
+  // Inverted half pyramid
+  int n;
+  cin >> n;
+  for (int i = n; i >= 1; i--) {
+    for (int j = 1; j <= i; j++) {
+      cout << "* ";
+    }
+    cout << endl;
+  }
+  return 0;
+}
+```
+</details>
+
 ## Functions
 
 <details>
