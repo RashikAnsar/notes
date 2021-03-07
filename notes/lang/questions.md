@@ -647,6 +647,54 @@ int main() {
 ```
 </details>
 
+<details>
+<summary>Print the following pattern (Half Pyramid after 180&deg;)</summary>
+
+<Tabs
+  className="unique-tabs"
+  defaultValue="_out"
+  values={[
+    {label: 'Input', value: '_in'},
+    {label: 'Output', value: '_out'},
+  ]}>
+  <TabItem value="_in"><code>n = 5</code></TabItem>
+  <TabItem value="_out">
+
+  ```cpp
+      *
+     **
+    ***
+   ****
+  *****
+  ```
+  </TabItem>
+</Tabs>
+
+```cpp title="pattern.cpp"
+#include <iostream>
+
+using namespace std;
+
+int main() {
+  // half pyramid after 180 deree rotation
+  int n;
+  cin >> n;
+
+  for (int i = 1; i <= n; i++) {
+    for (int j = 1; j <= n; j++) {
+      if (j <= n - i) {
+        cout << " ";
+      } else {
+        cout << "*";
+      }
+    }
+    cout << endl;
+  }
+  return 0;
+}
+```
+</details>
+
 ## Functions
 
 <details>
