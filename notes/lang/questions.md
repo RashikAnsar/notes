@@ -898,6 +898,62 @@ int main() {
 ```
 </details>
 
+<details>
+<summary>Print the following pattern (Pyramid Numbers)</summary>
+
+<Tabs
+  className="unique-tabs"
+  defaultValue="_out"
+  values={[
+    {label: 'Input', value: '_in'},
+    {label: 'Output', value: '_out'},
+  ]}>
+
+  <TabItem value="_in">
+
+  ```cpp
+  n = 5
+  ```
+  </TabItem>
+  <TabItem value="_out">
+
+  ```cpp
+
+      1 
+     1 2 
+    1 2 3 
+   1 2 3 4 
+  1 2 3 4 5 
+  ```
+  </TabItem>
+</Tabs>
+
+```cpp title="pattern.cpp"
+#include <iostream>
+
+using namespace std;
+
+int main() {
+  int n;
+  cin >> n;
+
+  for (int i = 1; i <= n; i++) {
+    for (int j = 1; j < n + 1 - i; j++) {
+      cout << " ";
+    }
+
+    for (int j = 1; j <= i; j++) {
+      cout << j << " ";
+    }
+
+    cout << endl;
+  }
+
+  return 0;
+}
+```
+</details>
+
 ## Functions
 
 <details>
