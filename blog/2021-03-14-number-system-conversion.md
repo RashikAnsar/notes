@@ -25,7 +25,7 @@ void numConversion(int num,int inputNumSystem, int outputNumSystem) {
 
     while(num) {
         rem = num % outputNumSystem;
-        ans += ans * power;
+        ans += rem * power;
         power *= inputNumSystem;
         num /= outputNumSystem;
     }
@@ -52,7 +52,7 @@ int main() {
 
     while(n) {
         rem = n % EXPECTED_NUMBER_SYSTEM;
-        ans += ans * power;
+        ans += rem * power;
         power *= GIVEN_NUMBER_SYSTEM;
         n /= EXPECTED_NUMBER_SYSTEM;
     }
