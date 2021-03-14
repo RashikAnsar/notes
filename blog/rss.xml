@@ -4,9 +4,16 @@
         <title>Rashik Notes Blog</title>
         <link>https://rashikansar.github.io/blog</link>
         <description>Rashik Notes Blog</description>
-        <lastBuildDate>Fri, 01 Jan 2021 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Sun, 14 Mar 2021 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
+        <item>
+            <title><![CDATA[Number System Conversions]]></title>
+            <link>https://rashikansar.github.io/notes/blog/number-system</link>
+            <guid>number-system</guid>
+            <pubDate>Sun, 14 Mar 2021 00:00:00 GMT</pubDate>
+            <description><![CDATA[Convert a number from one number system to another number system.]]></description>
+        </item>
         <item>
             <title><![CDATA[Hello]]></title>
             <link>https://rashikansar.github.io/notes/blog/hello-world</link>
