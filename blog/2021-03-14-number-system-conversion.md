@@ -17,9 +17,9 @@ In computer science we might have come across various number systems like binary
 
 ### Conversion between two number systems
 
-Given a number in `x` number system (input number sytem or given number system) and want them it in `y` number system (output number sytem or expected number system). The more generalized algorithm
+Given a number in `x` number system (input number sytem or given number system) and want them it in `y` number system (output number sytem or expected number system). The more generalized algorithm but **it'll work only for those number systems whose base that is less than or equal to the decimal number system** (example: It'll not work hexadecimal system since it has characters in it and it'is greater than 10).
 
-```cpp
+```cpp title="algo.cpp"
 void numConversion(int num,int inputNumSystem, int outputNumSystem) {
     int power = 1, ans = 0, rem = 0;
 
@@ -33,9 +33,10 @@ void numConversion(int num,int inputNumSystem, int outputNumSystem) {
 }
 ```
 
-Here is an example of Binary to Decimal number conversion using the same algorithm but with in the main function itself. We can try with various number systems where we just have to change the `GIVEN_NUMBER_SYSTEM ` and `EXPECTED_NUMBER_SYSTEM` values. 
+### Examples
+Binary to Decimal number conversion using the same algorithm but with in the main function itself. We can try with various number systems where we just have to change the `GIVEN_NUMBER_SYSTEM ` and `EXPECTED_NUMBER_SYSTEM` values. 
 
-```cpp
+```cpp {12,13} title="binaryToDecimal.cpp" 
 #include <iostream>
 
 using namespace std;
@@ -59,6 +60,31 @@ int main() {
     cout << ans << endl;
     return 0;
 }
-
 ```
 
+Another example with Decimal to Octal
+```cpp {12,13} title="decimalToOctal.cpp" 
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    int n;
+    cin >> n;
+
+    int power = 1, ans = 0, rem = 0;
+
+    // DECIMAL TO OCTAL
+    int GIVEN_NUMBER_SYSTEM = 10;
+    int EXPECTED_NUMBER_SYSTEM = 8;
+
+    while(n) {
+        rem = n % EXPECTED_NUMBER_SYSTEM;
+        ans += rem * power;
+        power *= GIVEN_NUMBER_SYSTEM;
+        n /= EXPECTED_NUMBER_SYSTEM;
+    }
+    cout << ans << endl;
+    return 0;
+}
+```
