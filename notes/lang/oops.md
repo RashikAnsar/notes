@@ -236,3 +236,103 @@ The destructor was called for circle with radius: 0
 The destructor was called for circle with radius: 5.2
 The destructor was called for circle with radius: 5.2
 ```
+
+## Encapsulation
+
+Encapsulation combines a class's data and the member functions to act on that data. Operations on data in a class should only be possible through the members that class provides; member data should not be directly accessible. This is also known as **data-hiding**.
+
+We can apply encapsulation design to our class by using `access-modifiers`.
+
+```cpp title="encapsulation.cpp"
+#include <iostream>
+
+using namespace std;
+
+class Person {
+ private:
+  string m_name;
+  int m_age;
+
+ public:
+  Person(string name, int age) {
+    m_name = name;
+    m_age = age;
+  }
+
+  void print() {
+    cout << "My name is: " << m_name << " and I'm " << m_age << " years old."
+         << endl;
+  }
+};
+
+int main() {
+  Person p("John Doe", 20);
+  p.print();
+  return 0;
+}
+```
+
+In the above example you can see that we cannot directly access the data members but we can access via member functions (methods) like `print` and constructor itself to initialize values.
+
+### Getters and Setters
+A common technique for protecting data while still allowing sensible access is to use getters and setters. Unsurprisingly, a getter gets data and a setter sets data. Getters are commonly prefixed with the word `get` and setters with the word `set`.
+
+Setters allow the setting of some data. It is worth noting that a direct setter will essentially break encapsulation as it exposes the variable to be changed again. One thing that a setter allows that a publicly exposed member variable does not is the validation of the data to be set.
+
+```cpp title="settersGetters.cpp"
+#include <cmath>
+#include <iostream>
+
+class Position {
+ public:
+  Position(float x, float y) : m_x(x), m_y(y) {}
+
+  float distance(float x, float y) {
+    float xDiff = x - m_x;
+    float yDiff = y - m_y;
+    return std::sqrt(((xDiff * xDiff) + (yDiff * yDiff)));
+  }
+
+  float getX() { return m_x; }
+  float getY() { return m_y; }
+  void setX(float x) { m_x = x; }
+  void setY(float y) { m_y = y; }
+
+ private:
+  float m_x;
+  float m_y;
+};
+
+int main() {
+  float maxDistance = 500.0f;
+  Position pos(10.0f, 20.0f);
+  Position pos2(100.0f, 200.0f);
+  bool validDistance = true;
+  int numberOfTimesMoved = 0;
+
+  while (validDistance) {
+    float distance = pos.distance(pos2.getX(), pos2.getY());
+
+    if (distance > maxDistance) {
+      validDistance = false;
+      break;
+    }
+
+    // get direction
+    float xDirection = pos2.getX() - pos.getX();
+    float yDirection = pos2.getY() - pos.getY();
+
+    // normalize
+    float normalizedX = xDirection / distance;
+    float normalizedY = yDirection / distance;
+    pos.setX(pos.getX() - normalizedX);
+    pos.setY(pos.getY() - normalizedY);
+    numberOfTimesMoved++;
+  }
+
+  std::cout << "Too far apart."
+            << " Moved " << numberOfTimesMoved << " times";
+
+  return 0;
+}
+```
