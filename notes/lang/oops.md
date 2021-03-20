@@ -454,3 +454,111 @@ Understanding how different access modifiers affect inheritance is important, an
 
 All variables, regardless of the access modifier, are fully visible to the class in which they are defined. Derived classes (those that inherit from a base class) can access public and protected members. Finally, the access modifier used when inheriting from the base class determines the final visibility of the members, and therefore, how all other classes can access them.
 
+### Virtual Functions
+
+In C++, a virtual function is one that can have its functionality overridden by a derived class. To mark a function as virtual, we simply use the `virtual` keyword at the start of its declaration.
+
+This is done, first, by declaring a function with the same signature, return type, name, and the override keyword and then by defining it. 
+
+:::tip
+Overriding virtual functions will work just fine without `override` identifier, but it's good practice to include it.
+
+Unlike virtual, override is not a keyword. It is instead an identifier with special meaning. It has no special meaning outside of the context of virtual functions.
+:::
+
+```cpp title="overriding.cpp"
+#include <iostream>
+
+using namespace std;
+
+class MyBaseClass {
+ public:
+  virtual void printMessage() {
+    cout << "Hello" << endl; 
+  }
+};
+
+class MyDerivedClass : public MyBaseClass {
+ public:
+  void printMessage() override {
+    cout << "World!" << endl; 
+  }
+};
+
+int main() {
+  MyDerivedClass d;
+  d.printMessage();
+  return 0;
+}
+```
+
+In our overriding function, we can make a call to the base function through our base class type. This will run the logic defined in the base version of the function before running that of the overriding function.
+
+
+```cpp title="updatedSnippet.cpp"
+class MyDerivedClass : public MyBaseClass {
+ public:
+  void printMessage() override {
+
+    // Added this line in above code.
+    MyBaseClass::printMessage();
+    
+    cout << "World!" << endl; 
+  }
+};
+```
+
+### Pure Virtual Functions (or) Abstract Classes
+
+Overriding a normal virtual function is optional; however, if we want to force our users to implement a virtual function in the derived class, we can make it pure virtual in the base class. A pure virtual function does not have an implementation in the base class, it is merely declared. 
+
+Syntax: `virtual   void   MyFunction()   =   0;`
+
+If we don't want to provide a definition in the base class, but still want to make overriding the function optional, we can give it an empty body. Since we've given it an empty body, the class does not become abstract.
+
+Syntax: `virtual   void   MyFunction() {};`
+
+> When a class contains one or more pure virtual functions, it becomes an abstract class.This is a class that cannot be directly instantiated.
+
+```cpp title="virtualFunctions.cpp"
+#include <iostream>
+#include <string>
+
+// abstract class Shape
+class Shape {
+ public:
+  virtual int CalculateArea() = 0;
+
+ protected:
+  int area = 0;
+};
+
+class Square : public Shape {
+ public:
+  int height = 0;
+
+  int CalculateArea() override {
+    area = height * height;
+    return area;
+  }
+};
+
+class Circle : public Shape {
+ public:
+  int radius = 0;
+
+  int CalculateArea() override {
+    area = 3.14 * (radius * radius);
+    return area;
+  }
+};
+
+int main() {
+  Square square;
+  square.height = 10;
+  std::cout << "Square Area: " << square.CalculateArea() << std::endl;
+  Circle circle;
+  circle.radius = 10;
+  std::cout << "Circle Area: " << circle.CalculateArea() << std::endl;
+}
+```
