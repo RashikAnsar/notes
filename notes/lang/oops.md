@@ -341,3 +341,116 @@ int main() {
 Abstraction and encapsulation are two sides of the same coin. Encapsulating data inside a class allows functionality on that data to be abstracted away, only exposing the methods the class design needs to make the class functional to a user and hiding all the nitty-gritty implementation details the class performs on its member data.
 
 > Abstraction provides only an essential interface to the user and hides the background details.
+
+## Inheritance
+When declaring a class in C++, we have the ability to inherit from another class. In fact, we can inherit from multiple classes at the same time—a feature of C++ that not all object-oriented languages share. When we inherit from another class, we gain all its members that have either public or protected privacy modifiers. Private members remain visible only to the class in which they're defined, not the inheriting class. 
+
+This is one of the fundamental concepts in OOP and allows us to build flexible, maintainable objects where common functionality can be declared only once, then implemented and extended where needed.
+
+:::info
+If we want to prohibit a class from being inherited from, C++11 provides us with the `final` keyword.
+
+`class ClassName final {};`
+:::
+
+```cpp title="inheritance.cpp"
+
+#include <iostream>
+
+class Shape {
+ public:
+  int area = 10;
+  int GetArea() { return area; }
+};
+
+class Square : public Shape {};
+class Circle : public Shape {};
+class Triangle : public Shape {};
+
+int main() {
+  Square mySquare;
+  Circle myCircle;
+  Triangle myTriangle;
+
+  mySquare.area = 5;
+  std::cout << "Square Area: " << mySquare.GetArea() << std::endl;
+
+  myCircle.area = 15;
+  std::cout << "Circle Area: " << myCircle.GetArea() << std::endl;
+
+  std::cout << "Triangle Area: " << myTriangle.GetArea() << std::endl;
+  return 0;
+}
+```
+
+### Multiple Inheritance
+A single derived class can inherit variables and functionality from multiple base classes to create a more complex object.
+
+```cpp title="multipleInheritance.cpp"
+#include <iostream>
+
+class Color {
+ public:
+  std::string color = "";
+  std::string GetColor() { return color; }
+};
+
+class Shape {
+ public:
+  int area = 10;
+  int GetArea() { return area; }
+};
+
+class Square : public Shape, public Color {};
+
+class Circle : public Shape, public Color {};
+
+class Triangle : public Shape, public Color {};
+
+int main() {
+  Square mySquare;
+  Circle myCircle;
+  Triangle myTriangle;
+  mySquare.area = 5;
+  mySquare.color = "red";
+  std::cout << "Square Area: " << mySquare.GetArea() << std::endl;
+  std::cout << "Square Color: " << mySquare.GetColor() << std::endl;
+  myCircle.area = 10;
+  myCircle.color = "blue";
+  std::cout << "Circle Area: " << myCircle.GetArea() << std::endl;
+  std::cout << "Circle Color: " << myCircle.GetColor() << std::endl;
+  myTriangle.area = 15;
+  myTriangle.color = "green";
+  std::cout << "Triangle Area: " << myTriangle.GetArea() << std::endl;
+  std::cout << "Triangle Color: " << myTriangle.GetColor() << std::endl;
+}
+```
+
+### Diamond Problem
+It's named after the shape of its inheritance diagram. Where two classes (B, C) inherit from one Class (A) and a class(D) inherits from both classes (B and C) the resultant class will have two copies of everythin within class(A).
+
+> The result of a class inheriting from two base classes that share a common base themselves.
+
+This can be avoided in two ways:
+1. First is to qualify which version of the variable you want to access (`B::DataMember = 1`)
+2. Through the use of virtual inheritance. When we use the virtual keyword when inheriting from a class, we ensure that only one copy of our base class's member variables will be inherited by any derived classes
+
+This avoids duplicate properties and mitigates the diamond problem.
+
+### Access modifiers  and inheritance
+There are two areas of accessibility we need to be aware of when making use of inheritance. The first is the accessibility of the members in our base class, and the second is the access modifier we define when inheriting from a class. 
+
+| Base Class | Derived access with public inheritance | Derived access with protected inheritance | Derived access with private inheritance |
+| ---------- | -------------------------------------- | ----------------------------------------- | --------------------------------------- |
+| public     | public                                 | protected                                 | private                                 |
+| protected  | protected                              | protected                                 | private                                 |
+| private    | private                                | private                                   | private                                 |
+
+> The most restrictive modifier wins.
+
+Whenever two different modifiers are combined (such as a protected base class variable being inherited privately) it's the most restrictive modifier that sticks; in that case, it would be private
+
+Understanding how different access modifiers affect inheritance is important, and often, a cause of confusion.
+
+All variables, regardless of the access modifier, are fully visible to the class in which they are defined. Derived classes (those that inherit from a base class) can access public and protected members. Finally, the access modifier used when inheriting from the base class determines the final visibility of the members, and therefore, how all other classes can access them.
+
