@@ -562,3 +562,147 @@ int main() {
   std::cout << "Circle Area: " << circle.CalculateArea() << std::endl;
 }
 ```
+
+## Polymorphism
+
+Polymorphism allows us to call different implementations of the same function depending on which inheriting object we're calling the function on.
+
+It's important to note that polymorphism only works with non-value types—that is, references and pointers. With regard to polymorphism, they act largely the same; however, a reference cannot be legally null. This means that dynamic_cast will instead throw an exception on a failed cast rather than returning `nullptr`.
+
+```cpp title="polymorphism.cpp"
+#include <iostream>
+#include <string>
+
+class Shape {
+ public:
+  virtual int CalculateArea() = 0;
+
+ protected:
+  int area = 0;
+};
+
+class Square : public Shape {
+ public:
+  int height = 10;
+  int CalculateArea() override {
+    area = height * height;
+    return area;
+  }
+};
+
+class Circle : public Shape {
+ public:
+  int radius = 10;
+  int CalculateArea() override {
+    area = 3.14 * (radius * radius);
+    return area;
+  }
+};
+
+int main() {
+  Shape* square = new Square();
+  Shape* circle = new Circle();
+  std::cout << "Square Area: " << square->CalculateArea() << std::endl;
+  std::cout << "Circle Area: " << circle->CalculateArea() << std::endl;
+  delete square;
+  square = nullptr;
+  delete circle;
+  circle = nullptr;
+}
+```
+### Casting between types
+
+Casting is the process of converting an object from one type to another. This is important if we're storing derived types in a collection whose type is the base. In this case, we would need to cast from a base to a derived type. This is called a down-cast and requires a type check. We can also cast from a derived type to a base class, and this is called an up-cast. These are always allowed.
+
+There are generally 3 types of cast:
+1. Static cast
+2. Dynamic cast
+3. C-style cast
+
+#### `static_cast`
+A `static_cast` is used when you are sure you're working with an object of a certain type. As such, no checks are done.
+
+Syntax: `static_cast<type_to_cast_to*>(object_to_cast_from);`
+
+```cpp title="staticCast.cpp"
+#include <iostream>
+#include <string>
+
+class MyClassA {
+ public:
+  int myInt = 0;
+};
+
+class MyClassB : public MyClassA {
+ public:
+  std::string myString = "";
+};
+
+int main() {
+  MyClassA* myClass = new MyClassB();
+  std::cout << myClass->myInt << std::endl;
+
+  MyClassB* myClassB = static_cast<MyClassB*>(myClass);
+  std::cout << myClassB->myString << std::endl;
+  delete myClass;
+  myClass = nullptr;
+}
+```
+
+#### `dynamic_cast`
+`dynamic_cast` is used when we aren't sure what type of object we're working with. If we try a dynamic cast and it fails, `nullptr` is returned. We can then check if our object is valid.
+
+Syntax: `dynamic_cast<type_to_cast_to*>(object_to_cast);`
+
+For dynamic_cast to work when down-casting, the base class must contain at least one virtual function.
+
+However, if BaseClass was to contain a virtual function and thus be a polymorphic type this would work fine. Using `dynamic_cast` is safer than `static_cast` because it will return a null pointer if the cast fails.
+
+:::tip
+Reference: [Explicit Type Conversion](https://en.cppreference.com/w/cpp/language/explicit_cast)
+:::
+
+```cpp title="casting.cpp"
+#include <iostream>
+#include <string>
+class Shape {
+ public:
+  virtual int CalculateArea() = 0;
+
+ protected:
+  int area = 0;
+};
+
+class Square : public Shape {
+ public:
+  int height = 0;
+  int CalculateArea() override {
+    area = height * height;
+    return area;
+  }
+};
+
+class Circle : public Shape {
+ public:
+  int radius = 0;
+  int CalculateArea() override {
+    area = 3.14 * (radius * radius);
+    return area;
+  }
+};
+
+int main() {
+  Shape* square = new Square();
+  Shape* circle = new Circle();
+  Square* square2 = static_cast<Square*>(square);
+  square2->height = 10;
+  Circle* circle2 = static_cast<Circle*>(circle);
+  circle2->radius = 10;
+  std::cout << "Square Area: " << square->CalculateArea() << std::endl;
+  std::cout << "Circle Area: " << circle->CalculateArea() << std::endl;
+  delete square;
+  square = nullptr;
+  delete circle;
+  circle = nullptr;
+}
+```
