@@ -117,6 +117,25 @@ A constructor is a special member function that creates and initializes an objec
 A destructor is a special member function that cleans and destroys an object.
 :::
 
+If any memory has been dynamically allocated, then the destructor of an object must free this memory by using delete or delete[], depending on the data type. If a class allocates memory dynamically, an explicit destructor should be created to ensure that this memory is freed correctly.
+
+
+### Shallow Copy vs Deep Copy
+Shallow copy, it runs through each member variable and assigns them the corresponding value of the object currently being copied. A shallow copy of an object copies all the members. This is **usually fine when all the members are values**. But, when a shallow copy is enacted on a pointer to dynamic memory, only the pointer is copied, not the memory it points to. 
+
+The implicit default copy constructor does the shallow copy.
+
+To correctly handle the copy of our dynamically allocated memory, and we know that the compiler-generated copy constructor will not do this for us; we need to write our own.
+
+:::note
+When is a shallow copy not enough?
+
+When a class has dynamically allocated memory, a deep copy is usually needed.
+:::
+
+If you need to define an **explicit copy constructor**, then you will almost always need to also define an **explicit copy assignment operator**.
+
+
 ## Object
 
 Object is the instance of the class. which will have the copy of the data members and methods that can be applied on the object.
