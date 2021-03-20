@@ -336,3 +336,8 @@ int main() {
   return 0;
 }
 ```
+
+## Abstraction
+Abstraction and encapsulation are two sides of the same coin. Encapsulating data inside a class allows functionality on that data to be abstracted away, only exposing the methods the class design needs to make the class functional to a user and hiding all the nitty-gritty implementation details the class performs on its member data.
+
+> Abstraction provides only an essential interface to the user and hides the background details.
