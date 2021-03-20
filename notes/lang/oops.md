@@ -20,6 +20,10 @@ C++ is a combination of a procedural and an object-oriented language. Object-Ori
 
 ## Class
 
+:::info
+The main difference between a `class` and a `struct` is that a struct's member variables and methods are **`public`**, while a class's member variables and methods are **`private`**.
+:::
+
 Class is a blueprint from which objects are created. In C++, new types are mostly created using a class. To write object-oriented programs, we need to create a class, as a type, and then instantiate objects as instances of that type.
 
 :::info
@@ -31,6 +35,7 @@ A class in C++ contains
 1. Data memebers: are the properties/attributes of class
 2. Methods: are the behaviours of the class
 3. Constructor: It's used to create instances of class (Object)
+
 
 ### Data Members
 
@@ -99,7 +104,12 @@ We can have three types of constructors in a class
 The parameter constructor can be overloaded for a class but not other constructors.
 :::
 
-Like a constructor, a destructor has two special characteristics. First, the name of the destructor is the name of the class preceded by a tilde symbol (`~`), but the tilde is added to the first name, not the last name (the last name is the same for all member functions). Second, like a constructor, a destructor cannot have a return value (not even void) because it returns nothing. A destructor is guaranteed to be automatically called and executed by the system when the object instantiated from the class goes out of scope. In other words, if we have instantiated five objects from the class, the destructor is automatically called five times to guarantee that all objects are cleaned up. Cleanup is most important if the constructed has called resources such as files. After the program is terminated, the allocated memory is recycled. A destructor can take no arguments, which means it cannot be overloaded.
+Like a constructor, a destructor has two special characteristics. 
+1. the name of the destructor is the name of the class preceded by a tilde symbol (`~`), but the tilde is added to the first name, not the last name (the last name is the same for all member functions). 
+2. Like a constructor, a destructor cannot have a return value (not even void) because it returns nothing. 
+3. A destructor can take no arguments, which means it cannot be overloaded.
+
+A destructor is guaranteed to be automatically called and executed by the system when the object instantiated from the class goes out of scope. In other words, if we have instantiated five objects from the class, the destructor is automatically called five times to guarantee that all objects are cleaned up. Cleanup is most important if the constructed has called resources such as files. After the program is terminated, the allocated memory is recycled. 
 
 :::info
 A constructor is a special member function that creates and initializes an object.
